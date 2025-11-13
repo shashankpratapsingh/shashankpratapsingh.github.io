@@ -57,9 +57,9 @@ Master’s Thesis: *Class Field Theory and Tate’s Thesis*
 
 - **Tensor algebras in the representation category of Taft algebras**  
   Hopf25, Université libre de Bruxelles, April 2025.
-
+<!--
 - **Understanding Hopf algebra representations through quivers**  
-  AMCS-MATH Day, University of Iowa, September 2024.
+  AMCS-MATH Day, University of Iowa, September 2024.-->
 
 ### Seminar talks
 
@@ -130,7 +130,7 @@ Master’s Thesis: *Class Field Theory and Tate’s Thesis*
 - **Erwin and Peggy Kleinfeld Scholar**, Department of Mathematics, University of Iowa  
   Fall 2023 – Spring 2026.
 
-- **Kleinfeld Math Graduate Recruitment Fellowship**, University of Iowa  
+- **Kleinfeld Math Graduate Recruitment Fellowship**, Department of Mathematics, University of Iowa  
   Fall 2021 – Summer 2022.
 
 - **INSPIRE Scholarship**, Department of Science & Technology, India  
