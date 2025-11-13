@@ -12,6 +12,8 @@ children:
     permalink: /photography/
 ---
 
+<!--
 #  - title: bookshelf
 #    permalink: /books/
 #  - title: divider
+-->
