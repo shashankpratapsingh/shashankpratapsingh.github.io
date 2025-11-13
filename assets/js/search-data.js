@@ -23,8 +23,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-cv",
-          title: "CV",
+        },{id: "nav-curriculum-vitae",
+          title: "Curriculum Vitae",
           description: "Curriculum vitae of Shashank Pratap Singh.",
           section: "Navigation",
           handler: () => {
