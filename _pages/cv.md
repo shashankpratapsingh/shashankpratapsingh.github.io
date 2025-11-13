@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /cv/
-title: CV
+title: Curriculum Vitae
 nav: true
 nav_order: 3
 cv_pdf: CV_Shashank.pdf # you can also use external links here
@@ -9,8 +9,6 @@ description: Curriculum vitae of Shashank Pratap Singh.
 toc:
   sidebar: left
 ---
-
-# Curriculum Vitae
 
 **Shashank Pratap Singh**  
 Department of Mathematics, University of Iowa  
