@@ -36,10 +36,11 @@ Current research focuses on generalizing classical representation-theoretic resu
 ## Education
 
 **Ph.D. in Mathematics**, University of Iowa (expected 2026)  
-Advisor: Prof. Ryan Kinser  
+Advisor: Prof. [Ryan Kinser](https://homepage.math.uiowa.edu/~rkinser/)  
 Dissertation: *Quivers and Tensor Categories: Toward a Generalization of Gabriel’s Theorem*
 
-**B.S. & M.S. in Mathematics**, Indian Institute of Science Education and Research, Pune (2018)  
+**B.S. & M.S. in Mathematics**, Indian Institute of Science Education and Research, Pune (2018)
+Advisor: Prof. [Chandrasheel Bhagwat](https://sites.google.com/site/chandrasheelbhagwat/)
 Master’s Thesis: *Class Field Theory and Tate’s Thesis*
 
 ---
