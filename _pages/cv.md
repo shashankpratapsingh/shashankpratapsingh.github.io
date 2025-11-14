@@ -57,9 +57,9 @@ Master’s Thesis: *Class Field Theory and Tate’s Thesis*
 
 - **Tensor algebras in the representation category of Taft algebras**  
   Hopf25, Université libre de Bruxelles, April 2025.
-<!--
+  
 - **Understanding Hopf algebra representations through quivers**  
-  AMCS-MATH Day, University of Iowa, September 2024.-->
+  AMCS-MATH Day, University of Iowa, September 2024.
 
 ### Seminar talks
 
