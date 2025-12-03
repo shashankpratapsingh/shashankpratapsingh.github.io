@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex-Wise Linear Algebra | Shashank Pratap Singh</title>
+    <meta name="description"
+        content="PhD Candidate in Mathematics">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="site-title">
+                <a href="/"><span class="first-name">Shashank</span> Pratap Singh</a>
+            </div>
+            <nav>
+                <ul>
+                    
+                    <li><a href="/publications/" class="nav-link-wrapper"><span class="nav-link-text">Publications</span></a>
+                    </li>
+                    
+                    <li><a href="/cv/" class="nav-link-wrapper"><span class="nav-link-text">Curriculum Vitae</span></a>
+                    </li>
+                    
+                    <li><a href="/teaching/" class="nav-link-wrapper"><span class="nav-link-text">Teaching</span></a>
+                    </li>
+                    
+                    <li><a href="/blog/" class="nav-link-wrapper"><span class="nav-link-text">Blog</span></a>
+                    </li>
+                    
+                    <li><a href="/photography/" class="nav-link-wrapper"><span class="nav-link-text">Photography</span></a>
+                    </li>
+                    
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
+                    title="Toggle dark mode">
+                    <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle class="sun" cx="12" cy="12" r="5"></circle>
+                        <line class="sun" x1="12" y1="1" x2="12" y2="3"></line>
+                        <line class="sun" x1="12" y1="21" x2="12" y2="23"></line>
+                        <line class="sun" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line class="sun" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line class="sun" x1="1" y1="12" x2="3" y2="12"></line>
+                        <line class="sun" x1="21" y1="12" x2="23" y2="12"></line>
+                        <line class="sun" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line class="sun" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display:none;">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    
+    
+    
+
+    <main>
+        
+<div class="container">
+    <header class="page-header fade-in" id="pageHeader">
+        <h1>Vertex-Wise Linear Algebra</h1>
+    </header>
+
+    <article class="content fade-in">
+        <p>If you have ever taken a linear algebra course, you likely spent a significant amount of time analyzing square matrices. You calculated determinants, found eigenvalues, and perhaps wrestled with the Jordan Normal Form.</p>
+<p>Later, you might have realized that a matrix is essentially a coordinate-dependent projection of a more fundamental object: a linear map between vector spaces. A matrix is what we obtain when we fix a basis.</p>
+<p>But there is a third perspective. This approach takes the &ldquo;vector space and map&rdquo; intuition and lifts it into a combinatorial setting. This perspective allows us to perform linear algebra not just locally at a single <strong>node</strong>, but across a network. This is the theory of <strong>Quiver Representations</strong>.</p>
+<p>To understand a quiver representation, we do not need complex definitions immediately. We simply need to view two familiar examples through this structural lens.</p>
+<h2 id="the-single-object-universe">The Single-Object Universe</h2>
+<p>Consider the classic problem in linear algebra: we have a single vector space, let&rsquo;s call it $V$, and a linear operator $T: V \to V$.</p>
+<p>In a standard course, we ask: <em>What is the canonical form for $T$?</em> If the field is algebraically closed, we seek the Jordan Normal Form. This characterizes the operator up to similarity.</p>
+<p>Now, let&rsquo;s visualize this structurally. We have one location ($V$) and one morphism ($T$).</p>
+<p>In the language of quivers, this is a graph with one vertex and one loop.</p>
+<ul>
+<li>The <strong>node</strong> represents the vector space $V$.</li>
+<li>The arrow (loop) represents the linear map $T$.</li>
+</ul>
+<p>When we classify the &ldquo;representations&rdquo; of this simple graph, we are essentially classifying linear operators up to a change of basis. The &ldquo;Single Node&rdquo; quiver is simply the linear algebra of a single endomorphism.</p>
+<h2 id="the-two-object-universe">The Two-Object Universe</h2>
+<p>Let&rsquo;s increase the complexity slightly. Suppose we have two distinct vector spaces, $V$ and $W$, and a linear map between them, $f: V \to W$.</p>
+<p>Visually, this is a graph with two nodes connected by a single arrow.</p>
+<ul>
+<li>Node 1 is assigned the space $V$.</li>
+<li>Node 2 is assigned the space $W$.</li>
+<li>The arrow represents the map $f$.</li>
+</ul>
+<p>To classify this system, we look for bases in $V$ and $W$ that simplify the matrix of $f$. The Rank-Nullity theorem provides the answer: we can always choose bases such that the matrix is diagonal with $1$s and $0$s. The structure is entirely determined by the dimensions of the spaces and the rank of the map.</p>
+<h2 id="connecting-the-nodes">Connecting the Nodes</h2>
+<p>Notice the pattern?</p>
+<ol>
+<li>A graph with <strong>one node and a loop</strong> recovers the theory of <strong>Jordan Normal Forms</strong>.</li>
+<li>A graph with <strong>two nodes and an arrow</strong> recovers the theory of <strong>Rank</strong>.</li>
+</ol>
+<p>These are not disparate topics. They are the simplest instances of <strong>Vertex-Wise Linear Algebra</strong>.</p>
+<p>A <strong>Quiver</strong> (a directed graph) creates an underlying combinatorial structure. To build a <strong>Representation</strong> of that quiver, we assign a vector space to every node and a linear map to every arrow.</p>
+<p>Linear algebra is no longer confined to a single node; it operates over a network. The question then becomes: <em>If we construct a more complex graph, such as a star, a cycle, or a chain of $n$ nodes, can we still classify all the possible linear maps that live on it?</em></p>
+<p>The answer, established by Pierre Gabriel in the 1970s, is surprisingly deep. It connects this &ldquo;multiobject linear algebra&rdquo; to the classification of Lie algebras.</p>
+<h2 id="defining-the-structure">Defining the Structure</h2>
+<p>Now that we have the intuition that we are placing linear algebra on top of a graph, we can formalize the definitions.</p>
+<h3 id="the-quiver">The Quiver</h3>
+<p>A <strong>quiver</strong> $Q$ is simply a directed graph. It consists of:</p>
+<ul>
+<li>A set of vertices $Q_0$</li>
+<li>A set of arrows $Q_1$</li>
+<li>Two maps: $s, t: Q_1 \to Q_0$ (source and target) which assign to every arrow $\alpha \in Q_1$ its <strong>source</strong> node $s(\alpha)$ and its <strong>target</strong> node $t(\alpha)$.</li>
+</ul>
+<h3 id="the-representation">The Representation</h3>
+<p>A <strong>representation</strong> of $Q$ over a field $k$ assigns:</p>
+<ul>
+<li>A vector space $V_i$ to each vertex $i \in Q_0$</li>
+<li>A linear map $f_\alpha: V_{s(\alpha)} \to V_{t(\alpha)}$ to each arrow $\alpha \in Q_1$</li>
+</ul>
+<h3 id="the-dimension-vector">The Dimension Vector</h3>
+<p>The <strong>dimension vector</strong> of a representation is the tuple:
+$$\mathbf{d} = (\dim V_1, \dim V_2, \ldots, \dim V_n)$$</p>
+<p>This simple combinatorial invariant already tells us a lot about the representation.</p>
+<h2 id="morphisms-comparing-representations">Morphisms: Comparing Representations</h2>
+<p>Given two representations $V$ and $W$ of the same quiver $Q$, a <strong>morphism</strong> $\phi: V \to W$ is a collection of linear maps:
+$$\phi_i: V_i \to W_i$$</p>
+<p>such that for every arrow $\alpha: i \to j$, the following diagram commutes:</p>
+<p>$$V_i \xrightarrow{f_\alpha} V_j$$
+$$\downarrow \phi_i \qquad\qquad \downarrow \phi_j$$
+$$W_i \xrightarrow{g_\alpha} W_j$$</p>
+<h3 id="the-commutativity-condition">The Commutativity Condition</h3>
+<p>This means: $\phi_j \circ f_\alpha = g_\alpha \circ \phi_i$</p>
+<p>In other words, the linear maps must respect the structure imposed by the quiver.</p>
+<h2 id="the-atoms-of-linear-algebra">The Atoms of Linear Algebra</h2>
+<p>Just as integers factor into primes, representations decompose into <strong>indecomposables</strong>.</p>
+<p>A representation is <strong>indecomposable</strong> if it cannot be written as a direct sum of two non-zero representations.</p>
+<h3 id="the-problem-of-classification">The Problem of Classification</h3>
+<p>For which quivers can we explicitly list all indecomposable representations?</p>
+<p><strong>Gabriel&rsquo;s Theorem</strong> provides a stunning answer:</p>
+<blockquote>
+<p>A quiver has finitely many indecomposable representations if and only if its underlying undirected graph is a Dynkin diagram of type $A_n$, $D_n$, $E_6$, $E_7$, or $E_8$.</p>
+</blockquote>
+<ul>
+<li><strong>Type $A_n$:</strong> A simple line of nodes (Linear chains).</li>
+<li><strong>Type $D_n$:</strong> A line with a fork at one end.</li>
+<li><strong>Type $E_{6,7,8}$:</strong> Three specific exceptional graphs with short branches.</li>
+</ul>
+<p>This connects quiver representations directly to the classification of simple Lie algebras!</p>
+<p>Furthermore, Gabriel provided a bijection: the dimension vectors of these indecomposable representations correspond exactly to the <strong>positive roots</strong> of the associated root system.</p>
+<p>This result is profound. It tells us that the combinatorics of the graph strictly dictate the complexity of the linear algebra capable of living on it. If the graph is a Dynkin diagram, the linear algebra is &ldquo;tame&rdquo; and classifiable.</p>
+<h2 id="the-categorical-perspective"><strong>The Categorical Perspective</strong></h2>
+<p>Throughout this post, we have treated representations as explicit collections of data: vector spaces at nodes and linear maps on arrows. However, for those familiar with category theory, there is a much more concise definition that captures the entire structure at once.</p>
+<p>We can view the quiver $Q$ as generating a small category $\mathcal{Q}$, where the objects are the nodes and the morphisms are the paths formed by sequences of arrows. From this vantage point, a representation is simply a <strong>covariant functor</strong> from the quiver path category to the category of vector spaces:</p>
+<p>$$F: \mathcal{Q} \to \textbf{Vect}_k$$</p>
+<ul>
+<li><strong>Objects:</strong> The functor assigns a vector space $F(i) = V_i$ to each node $i$.</li>
+<li><strong>Morphisms:</strong> The functor assigns a linear map $F(\alpha) = V_\alpha$ to each arrow $\alpha$.</li>
+<li><strong>Composition:</strong> The functorality ensures that composition of paths corresponds to composition of linear maps.</li>
+</ul>
+<p>Furthermore, the morphisms between representations that we defined earlier (the families of maps satisfying the commutativity condition) are exactly the <strong>natural transformations</strong> between these functors.</p>
+<h3 id="why-this-matters"><strong>Why This Matters</strong></h3>
+<p>This is not merely a change in notation. By recognizing the category of representations, denoted $\text{Rep}(Q)$, as a functor category, we gain access to the powerful tools of homological algebra. We can speak of kernels, cokernels, and exact sequences of representations. We can compute extension groups to measure how representations can be &ldquo;glued&rdquo; together.</p>
+<p>We started with a simple matrix, expanded it into a graph of vector spaces, and ultimately arrived at a functor category. This journey from the concrete algebra of matrices to the structural beauty of quivers demonstrates the power of modern representation theory. It turns the &ldquo;zoo&rdquo; of linear operators into a structured landscape, where the geometry of the graph dictates the behavior of the algebra.</p>
+<hr>
+<p><em>This post provides an introduction to the theory. For a deeper dive, the following texts provide excellent entry points, ranging from introductory to advanced:</em></p>
+<ul>
+<li><strong>Ralf Schiffler</strong>, <em>Quiver Representations</em>. (An accessible introduction focusing on the path algebra and combinatorics).</li>
+<li><strong>Pavel Etingof et al.</strong>, <em>Introduction to Representation Theory</em>. (Chapter 4 covers quivers with a broad view of the field).</li>
+<li><strong>Alexander Kirillov Jr.</strong>, <em>Quiver Representations and Quiver Varieties</em>. (Connects the theory to geometry and physics).</li>
+</ul>
+
+    </article>
+</div>
+
+<script>
+    
+    (function () {
+        const pageHeader = document.getElementById('pageHeader');
+        if (!pageHeader) return;
+
+        const threshold = 100;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > threshold) {
+                pageHeader.classList.add('scrolled');
+            } else {
+                pageHeader.classList.remove('scrolled');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    })();
+</script>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 Shashank Pratap Singh</div>
+            
+            <div class="social-links">
+                
+                <a href="mailto:shashank-singh@uiowa.edu">Email</a>
+                
+                
+                
+                
+                <a href="https://github.com/shashankpratapsingh" target="_blank">GitHub</a>
+                
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sun = document.querySelectorAll('.sun');
+            const moon = document.querySelectorAll('.moon');
+
+            if (theme === 'dark') {
+                sun.forEach(el => el.style.display = 'none');
+                moon.forEach(el => el.style.display = 'block');
+            } else {
+                sun.forEach(el => el.style.display = 'block');
+                moon.forEach(el => el.style.display = 'none');
+            }
+        }
+
+        
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        })();
+
+        
+        (function () {
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+        })();
+
+        
+
+
+        
+
+    </script>
+    </body>
+
+</html>

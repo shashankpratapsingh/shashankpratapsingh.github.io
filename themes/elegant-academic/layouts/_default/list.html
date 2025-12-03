@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-header fade-in" id="pageHeader">
+        <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="content">
+        {{ .Content }}
+
+        {{ if .Pages }}
+        <div class="post-list">
+            {{ range .Pages }}
+            <a href="{{ .Permalink }}" class="post-item-link">
+                <article class="post-item">
+                    {{ if .Date }}
+                    <div class="post-meta">{{ .Date.Format "2006" }}</div>
+                    {{ end }}
+                    <h2 class="post-title">{{ .Title }}</h2>
+                    {{ if .Summary }}
+                    <p class="post-subtitle">{{ .Summary }}</p>
+                    {{ end }}
+                    {{ if .Params.venue }}
+                    <div class="post-meta">{{ .Params.venue }}</div>
+                    {{ end }}
+                </article>
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<script>
+    // Shrink page header on scroll - debounced to prevent flickering
+    (function () {
+        const pageHeader = document.getElementById('pageHeader');
+        if (!pageHeader) return;
+
+        const threshold = 100;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > threshold) {
+                pageHeader.classList.add('scrolled');
+            } else {
+                pageHeader.classList.remove('scrolled');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    })();
+</script>
+{{ end }}

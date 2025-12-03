@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts on Mathematical Visualization | Shashank Pratap Singh</title>
+    <meta name="description"
+        content="PhD Candidate in Mathematics">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="site-title">
+                <a href="/"><span class="first-name">Shashank</span> Pratap Singh</a>
+            </div>
+            <nav>
+                <ul>
+                    
+                    <li><a href="/publications/" class="nav-link-wrapper"><span class="nav-link-text">Publications</span></a>
+                    </li>
+                    
+                    <li><a href="/cv/" class="nav-link-wrapper"><span class="nav-link-text">Curriculum Vitae</span></a>
+                    </li>
+                    
+                    <li><a href="/teaching/" class="nav-link-wrapper"><span class="nav-link-text">Teaching</span></a>
+                    </li>
+                    
+                    <li><a href="/blog/" class="nav-link-wrapper"><span class="nav-link-text">Blog</span></a>
+                    </li>
+                    
+                    <li><a href="/photography/" class="nav-link-wrapper"><span class="nav-link-text">Photography</span></a>
+                    </li>
+                    
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
+                    title="Toggle dark mode">
+                    <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle class="sun" cx="12" cy="12" r="5"></circle>
+                        <line class="sun" x1="12" y1="1" x2="12" y2="3"></line>
+                        <line class="sun" x1="12" y1="21" x2="12" y2="23"></line>
+                        <line class="sun" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line class="sun" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line class="sun" x1="1" y1="12" x2="3" y2="12"></line>
+                        <line class="sun" x1="21" y1="12" x2="23" y2="12"></line>
+                        <line class="sun" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line class="sun" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display:none;">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    
+    
+    
+
+    <main>
+        
+<div class="container">
+    <header class="page-header fade-in" id="pageHeader">
+        <h1>Thoughts on Mathematical Visualization</h1>
+    </header>
+
+    <article class="content fade-in">
+        <p>Visualizing abstract mathematical structures has always been a challenge. Recently, I&rsquo;ve been exploring ways to represent tensor categories through diagrams and computational tools.</p>
+<h2 id="the-challenge">The Challenge</h2>
+<p>Traditional representation theory relies heavily on symbolic manipulation, but there&rsquo;s immense value in developing visual intuition for these structures.</p>
+<h2 id="approaches">Approaches</h2>
+<p>Some techniques I&rsquo;ve found useful:</p>
+<ul>
+<li>Quiver diagrams for module categories</li>
+<li>String diagrams for morphisms in tensor categories</li>
+<li>Computational visualization using SageMath</li>
+</ul>
+<h2 id="future-directions">Future Directions</h2>
+<p>I&rsquo;m particularly interested in developing interactive visualizations that can help students build intuition for non-semisimple categories.</p>
+
+    </article>
+</div>
+
+<script>
+    
+    (function () {
+        const pageHeader = document.getElementById('pageHeader');
+        if (!pageHeader) return;
+
+        const threshold = 100;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > threshold) {
+                pageHeader.classList.add('scrolled');
+            } else {
+                pageHeader.classList.remove('scrolled');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    })();
+</script>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 Shashank Pratap Singh</div>
+            
+            <div class="social-links">
+                
+                <a href="mailto:shashank-singh@uiowa.edu">Email</a>
+                
+                
+                
+                
+                <a href="https://github.com/shashankpratapsingh" target="_blank">GitHub</a>
+                
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sun = document.querySelectorAll('.sun');
+            const moon = document.querySelectorAll('.moon');
+
+            if (theme === 'dark') {
+                sun.forEach(el => el.style.display = 'none');
+                moon.forEach(el => el.style.display = 'block');
+            } else {
+                sun.forEach(el => el.style.display = 'block');
+                moon.forEach(el => el.style.display = 'none');
+            }
+        }
+
+        
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        })();
+
+        
+        (function () {
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+        })();
+
+        
+
+
+        
+
+    </script>
+    </body>
+
+</html>

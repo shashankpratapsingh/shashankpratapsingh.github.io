@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="container">
+    <section class="hero fade-in">
+        <div class="hero-content">
+            <h1><span class="first-name">{{ .Site.Params.firstName }}</span> {{ .Site.Params.lastName }}</h1>
+
+            <div class="role-info">
+                <span class="role">{{ .Site.Params.role }}</span>
+                <span class="university">{{ .Site.Params.affiliation }}</span>
+            </div>
+
+            <div class="bio">
+                {{ .Content }}
+            </div>
+
+            <div class="interests">
+                <h2>Research Interests</h2>
+                <ul>
+                    {{ range .Params.interests }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+
+        <div class="hero-sidebar">
+            <div class="hero-image">
+                <img src="/assets/images/profile.jpg" alt="{{ .Site.Params.author }}">
+            </div>
+            <div class="sidebar-contact">
+                <p>{{ .Site.Params.address }}<br>{{ .Site.Params.city }}</p>
+                <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+            </div>
+        </div>
+    </section>
+</div>
+{{ end }}

@@ -1,0 +1,62 @@
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.gallery-item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Combine with post-item class but override specific styles for gallery */
+.post-item.gallery-item {
+    padding: 0;
+    border: none;
+    background: var(--md-surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.post-item.gallery-item:hover {
+    box-shadow: var(--shadow-3);
+    transform: translateY(-2px) scale(1.005);
+    background: var(--md-surface);
+}
+
+.post-item.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-out;
+}
+
+/* Dark mode enhancement for gallery */
+[data-theme="dark"] .post-item.gallery-item {
+    background: var(--md-surface);
+    box-shadow: var(--shadow-1);
+}
+
+[data-theme="dark"] .post-item.gallery-item:hover {
+    background: var(--md-surface);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px) scale(1.005);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .post-item.gallery-item {
+        background: var(--md-surface);
+        box-shadow: var(--shadow-1);
+    }
+
+    :root:not([data-theme="light"]) .post-item.gallery-item:hover {
+        background: var(--md-surface);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.4);
+        transform: translateY(-2px) scale(1.005);
+    }
+}

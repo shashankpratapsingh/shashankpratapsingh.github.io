@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visualization on Shashank Pratap Singh</title>
+    <link>//localhost:1313/tags/visualization/</link>
+    <description>Recent content in Visualization on Shashank Pratap Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thoughts on Mathematical Visualization</title>
+      <link>//localhost:1313/blog/mathematical-visualization/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/mathematical-visualization/</guid>
+      <description>&lt;p&gt;Visualizing abstract mathematical structures has always been a challenge. Recently, I&amp;rsquo;ve been exploring ways to represent tensor categories through diagrams and computational tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;Traditional representation theory relies heavily on symbolic manipulation, but there&amp;rsquo;s immense value in developing visual intuition for these structures.&lt;/p&gt;&#xA;&lt;h2 id=&#34;approaches&#34;&gt;Approaches&lt;/h2&gt;&#xA;&lt;p&gt;Some techniques I&amp;rsquo;ve found useful:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Quiver diagrams for module categories&lt;/li&gt;&#xA;&lt;li&gt;String diagrams for morphisms in tensor categories&lt;/li&gt;&#xA;&lt;li&gt;Computational visualization using SageMath&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;future-directions&#34;&gt;Future Directions&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m particularly interested in developing interactive visualizations that can help students build intuition for non-semisimple categories.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

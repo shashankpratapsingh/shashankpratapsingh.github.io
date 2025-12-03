@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Shashank Pratap Singh</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content in Home on Shashank Pratap Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vertex-Wise Linear Algebra</title>
+      <link>//localhost:1313/blog/vertex-wise-linear-algebra/</link>
+      <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/vertex-wise-linear-algebra/</guid>
+      <description>An Invitation to Quiver Representations</description>
+    </item>
+    <item>
+      <title>The Fusion Topology of Non-Semisimple Quantum Symmetries</title>
+      <link>//localhost:1313/research/fusion-topology/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/research/fusion-topology/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This work unifies Mombelli&amp;rsquo;s algebraic classification of exact module categories with the combinatorial framework of fusion quivers, revealing unexpected geometric structure in the representation theory of Taft algebras.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-question&#34;&gt;Key Question&lt;/h2&gt;&#xA;&lt;p&gt;Can the abstract classification of module categories over pointed Hopf algebras be realized through explicit combinatorial data?&lt;/p&gt;&#xA;&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;&#xA;&lt;p&gt;By integrating categorical dualization theory with Green ring computations, we establish that:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;The Fusion Quiver for $\Rep(H_{n,q})$ is the cyclic quiver $Z_n$&lt;/li&gt;&#xA;&lt;li&gt;The internal algebra structure coincides with the McKay quiver of the generating module $M(2,0)$&lt;/li&gt;&#xA;&lt;li&gt;Relations arise naturally from the nilpotency of the quantum generator&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;&#xA;&lt;p&gt;This unification reveals a cylindrical geometry:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Example Gallery - Campus in Autumn</title>
+      <link>//localhost:1313/photography/example-gallery/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/photography/example-gallery/</guid>
+      <description>A collection of photos from campus during fall semester</description>
+    </item>
+  </channel>
+</rss>

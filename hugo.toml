@@ -1,0 +1,85 @@
+baseURL = "/"
+title = "Shashank Pratap Singh"
+theme = "elegant-academic"
+languageCode = "en-us"
+
+[params]
+  author = "Shashank Pratap Singh"
+  firstName = "Shashank"
+  lastName = "Pratap Singh"
+  role = "Ph.D. Candidate in Mathematics"
+  affiliation = "University of Iowa"
+  fullAffiliation = "Department of Mathematics, University of Iowa · USA"
+  address = "B12 MacLean Hall"
+  city = "Iowa City, IA 52242"
+  description = "PhD Candidate in Mathematics"
+  email = "shashank-singh@uiowa.edu"
+  
+  # Document URLs
+  cvUrl = "/assets/pdf/CV_Shashank.pdf"
+  researchStatementUrl = "/assets/pdf/Research_Statement_Shashank.pdf"
+  teachingPhilosophyUrl = "/assets/pdf/Teaching_Philosophy_Statement.pdf"
+  
+  # Social links
+  # Uncomment and fill in the ones you want to use
+  # To add a social link, uncomment the line and replace with your username/ID
+  [params.social]
+    email = "shashank-singh@uiowa.edu"
+    # orcid = "0000-0000-0000-0000"
+    # scholar = "your-scholar-id"
+    github = "shashankpratapsingh"
+    
+    # Additional social media options (uncomment to use):
+    # twitter = "your-twitter-handle"          # Twitter/X username (without @)
+    # linkedin = "your-linkedin-username"      # LinkedIn username
+    # mastodon = "https://mastodon.social/@you" # Full Mastodon URL
+    # researchgate = "your-researchgate-id"    # ResearchGate profile ID
+    # arxiv = "your-arxiv-author-id"           # arXiv author ID
+    # mathoverflow = "your-user-id"            # MathOverflow user ID
+    # stackoverflow = "your-user-id"           # Stack Overflow user ID
+    # youtube = "your-channel-id"              # YouTube channel ID
+    # instagram = "your-instagram-handle"      # Instagram username
+    # facebook = "your-facebook-username"      # Facebook username
+    
+    # To display these on your site, you'll need to:
+    # 1. Uncomment the social link above
+    # 2. Add the corresponding icon/link in your theme templates
+    # 3. See MAINTENANCE.md for detailed instructions
+
+[menu]
+  [[menu.main]]
+    name = "Publications"
+    url = "/publications/"
+    weight = 1
+    post = "papers and preprints"
+  [[menu.main]]
+    name = "Curriculum Vitae"
+    url = "/cv/"
+    weight = 2
+    post = "curriculum vitae"
+  [[menu.main]]
+    name = "Teaching"
+    url = "/teaching/"
+    weight = 3
+    post = "courses and teaching materials"
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 4
+    post = "informal notes, sketches, and announcements"
+  [[menu.main]]
+    name = "Photography"
+    url = "/photography/"
+    weight = 5
+    post = "visual explorations"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokailight"
+    lineNos = false
+
+[outputs]
+  home = ["HTML", "RSS"]

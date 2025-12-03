@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description"
+        content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body{{ if .IsHome }} class="home" {{ end }}>
+    <header>
+        <div class="header-content">
+            <div class="site-title">
+                <a href="/"><span class="first-name">{{ .Site.Params.firstName }}</span> {{ .Site.Params.lastName }}</a>
+            </div>
+            <nav>
+                <ul>
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL }}" class="nav-link-wrapper"><span class="nav-link-text">{{ .Name }}</span></a>
+                    </li>
+                    {{ end }}
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
+                    title="Toggle dark mode">
+                    <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle class="sun" cx="12" cy="12" r="5"></circle>
+                        <line class="sun" x1="12" y1="1" x2="12" y2="3"></line>
+                        <line class="sun" x1="12" y1="21" x2="12" y2="23"></line>
+                        <line class="sun" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line class="sun" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line class="sun" x1="1" y1="12" x2="3" y2="12"></line>
+                        <line class="sun" x1="21" y1="12" x2="23" y2="12"></line>
+                        <line class="sun" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line class="sun" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        <path class="moon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" style="display:none;">
+                        </path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Constellation Effect Canvas (Currently Disabled) -->
+    <!-- Uncomment this line when enabling the constellation effect: -->
+    <!-- <canvas id="constellation-canvas"></canvas> -->
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; {{ now.Year }} {{ .Site.Params.author }}</div>
+            {{ if .Site.Params.social }}
+            <div class="social-links">
+                {{ with .Site.Params.social.email }}
+                <a href="mailto:{{ . }}">Email</a>
+                {{ end }}
+                {{ with .Site.Params.social.orcid }}
+                <a href="https://orcid.org/{{ . }}" target="_blank">ORCID</a>
+                {{ end }}
+                {{ with .Site.Params.social.scholar }}
+                <a href="https://scholar.google.com/citations?user={{ . }}" target="_blank">Scholar</a>
+                {{ end }}
+                {{ with .Site.Params.social.github }}
+                <a href="https://github.com/{{ . }}" target="_blank">GitHub</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle with smooth transitions
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const sun = document.querySelectorAll('.sun');
+            const moon = document.querySelectorAll('.moon');
+
+            if (theme === 'dark') {
+                sun.forEach(el => el.style.display = 'none');
+                moon.forEach(el => el.style.display = 'block');
+            } else {
+                sun.forEach(el => el.style.display = 'block');
+                moon.forEach(el => el.style.display = 'none');
+            }
+        }
+
+        // Initialize theme
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        })();
+
+        // Smooth header animation on scroll
+        (function () {
+            const header = document.querySelector('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+        })();
+
+        /* ============================================================================
+           INTERACTIVE CONSTELLATION EFFECT (Currently Disabled)
+           ============================================================================
+           
+           This creates an elegant graph theory visualization with invisible nodes
+           and connection lines that appear when you move your mouse.
+           
+           CURRENT SETTINGS:
+           - 80 invisible nodes
+           - Lines at 18% opacity
+           - Connection radius: 140px between nodes, 180px to mouse
+           - Only activates on devices with mouse (not touch screens)
+           
+           TO ENABLE: Uncomment the entire block below (remove the /* and *\/)
+           TO DISABLE: Re-comment the block (add /* before and *\/ after)
+           
+           ============================================================================ */
+
+        /*
+        // Interactive Constellation Effect (Graph Theory Visualization)
+        (function () {
+            // Only activate on devices with mouse (not touch devices)
+            if (!matchMedia('(pointer:fine)').matches) return;
+
+            const canvas = document.getElementById('constellation-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let mouseX = -1000;
+            let mouseY = -1000;
+
+            // Configuration
+            const config = {
+                nodeCount: 80,           // Higher density for richer connections
+                connectionRadius: 140,   // Slightly smaller radius
+                mouseRadius: 180,        // Mouse connection radius
+                lineOpacity: 0.18,       // More visible lines (18%)
+                nodeSize: 0,             // No visible nodes
+            };
+
+            // Get theme-appropriate colors
+            function getColors() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches &&
+                        document.documentElement.getAttribute('data-theme') !== 'light');
+
+                return {
+                    line: isDark ? 'rgba(179, 157, 219, 0.18)' : 'rgba(94, 53, 177, 0.18)',
+                };
+            }
+
+            // Node class (invisible, just for positioning)
+            class Node {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.2;  // Very slow drift
+                    this.vy = (Math.random() - 0.5) * 0.2;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce off edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Keep in bounds
+                    this.x = Math.max(0, Math.min(width, this.x));
+                    this.y = Math.max(0, Math.min(height, this.y));
+                }
+            }
+
+            // Initialize nodes
+            let nodes = Array.from({ length: config.nodeCount }, () => new Node());
+
+            // Set canvas size
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            // Track mouse
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+
+            // Distance between two points
+            function distance(x1, y1, x2, y2) {
+                return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+            }
+
+            // Draw connection line with fade based on distance
+            function drawLine(x1, y1, x2, y2, maxDist, colors) {
+                const dist = distance(x1, y1, x2, y2);
+                if (dist > maxDist) return;
+
+                const opacity = (1 - dist / maxDist) * config.lineOpacity;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.strokeStyle = colors.line.replace('0.18', opacity.toFixed(3));
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                const colors = getColors();
+
+                // Update nodes (no drawing)
+                nodes.forEach(node => node.update());
+
+                // Draw connections between nodes
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        drawLine(
+                            nodes[i].x, nodes[i].y,
+                            nodes[j].x, nodes[j].y,
+                            config.connectionRadius,
+                            colors
+                        );
+                    }
+                }
+
+                // Draw connections to mouse
+                nodes.forEach(node => {
+                    drawLine(
+                        node.x, node.y,
+                        mouseX, mouseY,
+                        config.mouseRadius,
+                        colors
+                    );
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            // Initialize
+            resize();
+            window.addEventListener('resize', resize);
+            animate();
+
+            // Update on theme change
+            const observer = new MutationObserver(() => animate());
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme']
+            });
+        })();
+        */
+    </script>
+    </body>
+
+</html>

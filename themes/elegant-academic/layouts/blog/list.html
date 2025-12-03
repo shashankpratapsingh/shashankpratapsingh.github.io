@@ -1,0 +1,72 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-header fade-in" id="pageHeader">
+        <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="content">
+        {{ if .Pages }}
+        <div class="post-list">
+            {{ range .Pages.ByDate.Reverse }}
+            <a href="{{ .Permalink }}" class="post-item-link">
+                <article class="post-item">
+                    <h2 class="post-title">{{ .Title }}</h2>
+                    {{ if .Params.subtitle }}
+                    <p class="post-subtitle">{{ .Params.subtitle }}</p>
+                    {{ end }}
+                    <div class="post-meta">
+                        {{ if .Date }}
+                        <span>{{ .Date.Format "January 2, 2006" }}</span>
+                        {{ end }}
+                        {{ if .ReadingTime }}
+                        <span class="separator">·</span>
+                        <span>{{ .ReadingTime }} min read</span>
+                        {{ end }}
+                        {{ if .Params.tags }}
+                        <span class="separator">·</span>
+                        {{ range $index, $tag := .Params.tags }}
+                        {{ if $index }}, {{ end }}
+                        <span class="tag">{{ $tag }}</span>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </article>
+            </a>
+            {{ end }}
+        </div>
+        {{ else }}
+        {{ .Content }}
+        {{ end }}
+    </div>
+</div>
+
+<script>
+    // Shrink page header on scroll - debounced to prevent flickering
+    (function () {
+        const pageHeader = document.getElementById('pageHeader');
+        if (!pageHeader) return;
+
+        const threshold = 100;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > threshold) {
+                pageHeader.classList.add('scrolled');
+            } else {
+                pageHeader.classList.remove('scrolled');
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    })();
+</script>
+{{ end }}
