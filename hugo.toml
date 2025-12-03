@@ -2,6 +2,7 @@ baseURL = 'https://shashankpratapsingh.github.io/'
 title = "Shashank Pratap Singh"
 theme = "elegant-academic"
 languageCode = "en-us"
+googleAnalytics = 'G-8G70GWPHLB'
 
 [params]
   author = "Shashank Pratap Singh"
@@ -83,3 +84,4 @@ languageCode = "en-us"
 
 [outputs]
   home = ["HTML", "RSS"]
+
