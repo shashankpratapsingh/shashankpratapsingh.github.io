@@ -49,8 +49,8 @@ googleAnalytics = 'G-8G70GWPHLB'
 
 [menu]
   [[menu.main]]
-    name = "Publications"
-    url = "/publications/"
+    name = "Research"
+    url = "/research/"
     weight = 1
     post = "papers and preprints"
   [[menu.main]]

@@ -1,10 +1,16 @@
 ---
 title: "Research"
-subtitle: "Publications and ongoing projects"
 ---
 
-My research investigates the structure of non-semisimple quantum symmetries through categorical and combinatorial methods, with particular focus on Taft Hopf algebras and their representation categories.
+## Publications
 
-## Research Vision
+No refereed publications yet.
 
-The landscape of modern representation theory is witnessing a profound convergence between the rigorous classification of Hopf algebras and the diagrammatic intuition of fusion categories. My work seeks to bridge these perspectives through the development of combinatorial frameworks that make abstract categorical structures computationally tractable.
+Preprints and notes will appear here as they become available.
+
+Meanwhile, here is my [research statement](/assets/pdf/Research_Statement_Shashank.pdf).
+
+## Talks
+
+- [QuaSy-Con III](/assets/pdf/QuaSyConIII.pdf) — Talk from [QuaSy-Con III](https://sites.google.com/view/quasy-coniii/home)
+- [2025 Fall Central Sectional Meeting](/assets/pdf/AMS_Sectional.pdf) — Talk from [AMS Sectional Meeting](https://www.ams.org/meetings/sectional/2322_progfull.html)
