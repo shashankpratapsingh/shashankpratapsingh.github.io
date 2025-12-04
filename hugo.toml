@@ -78,6 +78,7 @@ googleAnalytics = 'G-8G70GWPHLB'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      wrapStandAloneImageWithinParagraph = false
   [markup.highlight]
     style = "monokailight"
     lineNos = false
