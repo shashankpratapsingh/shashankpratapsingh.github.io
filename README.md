@@ -2,7 +2,7 @@
 
 A clean, elegant, and easy-to-maintain website template for academics. Built with [Hugo](https://gohugo.io/).
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Run Locally
 ```bash
@@ -22,8 +22,7 @@ The content of the `public/` directory is what you upload to your web host (GitH
 
 ## 📖 How to Use This Site
 
-**For content updates (adding papers, blog posts, changing bio), please read:**
-👉 **[MAINTENANCE.md](MAINTENANCE.md)**
+**For content updates (adding papers, blog posts, changing bio), please read: [MAINTENANCE.md](MAINTENANCE.md)**
 
 This guide is written specifically for academics and covers:
 - Adding publications and talks
@@ -33,7 +32,7 @@ This guide is written specifically for academics and covers:
 
 ---
 
-## 💻 Technical Details (For Developers)
+## Technical Details (For Developers)
 
 ### Code Organization
 
@@ -87,7 +86,7 @@ There is a hidden graph-theory visualization in `layouts/_default/baseof.html`. 
 
 ---
 
-## 📄 License
+## License
 
 This project is open source. Feel free to modify and use it for your own academic website.
 
