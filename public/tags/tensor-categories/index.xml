@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tensor-Categories on Shashank Pratap Singh</title>
-    <link>http://localhost:1313/tags/tensor-categories/</link>
+    <link>https://shashankpratapsingh.github.io/tags/tensor-categories/</link>
     <description>Recent content in Tensor-Categories on Shashank Pratap Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tensor-categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shashankpratapsingh.github.io/tags/tensor-categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vertex-Wise Linear Algebra</title>
-      <link>http://localhost:1313/blog/vertex-wise-linear-algebra/</link>
+      <link>https://shashankpratapsingh.github.io/blog/vertex-wise-linear-algebra/</link>
       <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/vertex-wise-linear-algebra/</guid>
+      <guid>https://shashankpratapsingh.github.io/blog/vertex-wise-linear-algebra/</guid>
       <description>An Invitation to Quiver Representations</description>
     </item>
   </channel>
