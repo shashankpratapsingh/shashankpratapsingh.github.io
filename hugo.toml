@@ -20,6 +20,9 @@ googleAnalytics = 'G-8G70GWPHLB'
   cvUrl = "/assets/pdf/CV_Shashank.pdf"
   researchStatementUrl = "/assets/pdf/Research_Statement_Shashank.pdf"
   teachingPhilosophyUrl = "/assets/pdf/Teaching_Philosophy_Statement.pdf"
+
+  favicon = "favicon.ico"
+  touchIcon = "apple-touch-icon.png"
   
   # Social links
   # Uncomment and fill in the ones you want to use
