@@ -842,16 +842,6 @@ pre {
   margin-bottom: var(--space-3);
 }
 
-/* Only show the image if it is inside the FIRST paragraph of the content */
-.post-item p:first-of-type img {
-  display: block !important;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-3);
-}
-
 /* Keep your subtitle limiter (this was fine) */
 .post-subtitle {
   display: -webkit-box;
