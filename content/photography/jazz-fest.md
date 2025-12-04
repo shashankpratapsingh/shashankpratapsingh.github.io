@@ -5,7 +5,6 @@ title = 'Jazz Fest 2024, Iowa City'
 +++
 
 ![Rainbow](/assets/images/photography/jazz-fest/photo1.jpeg)
-
 ![Downtown](/assets/images/photography/jazz-fest/photo2.jpeg)
 ![Pentacrest](/assets/images/photography/jazz-fest/photo3.jpeg)
 ![Dancing Crowd](/assets/images/photography/jazz-fest/photo4.jpeg)
