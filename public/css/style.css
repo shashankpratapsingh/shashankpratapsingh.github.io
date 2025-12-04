@@ -807,6 +807,50 @@ pre {
   font-style: normal;
 }
 
+/* 1. Hide "heavy" content inside the preview card (lists, code, extra headers) */
+.post-item picture,
+.post-item figure,
+.post-item .gallery,
+.post-item pre,
+.post-item code,
+.post-item ul,
+.post-item ol,
+.post-item blockquote {
+  display: none !important;
+}
+
+/* 2. Hide Content Headings, BUT keep the main Title visible */
+/* This selects all h2/h3/h4 that do NOT have the class 'post-title' */
+.post-item h2:not(.post-title),
+.post-item h3:not(.post-title),
+.post-item h4 {
+  display: none !important;
+}
+
+/* 3. Handle Images: Hide them by default... */
+.post-item img {
+  display: none !important;
+}
+
+/* 4. ...BUT show the very first image (Cover Photo) */
+.post-item img:first-of-type {
+  display: block !important;
+  width: 100%;
+  height: 300px;        /* Optional: Forces all cover photos to same height */
+  object-fit: cover;    /* Crops the image neatly if it's too tall */
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+/* Keep your subtitle limiter (this was fine) */
+.post-subtitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .post-meta {
   font-size: var(--text-body2);
   color: var(--md-text-disabled);
@@ -977,6 +1021,16 @@ nav a {
   margin: var(--space-4) 0;
   font-style: italic;
   color: var(--md-text-secondary);
+}
+
+/* Fix for images inside markdown content */
+.content img {
+  max-width: 100%;       /* Forces image to fit within the text width */
+  height: auto;          /* Keeps the aspect ratio correct */
+  display: block;        /* Prevents weird spacing at the bottom */
+  margin: var(--space-4) auto; /* Centers the image with vertical spacing */
+  border-radius: var(--radius-md); /* OPTIONAL: Matches your theme's rounded corners */
+  box-shadow: var(--shadow-1);     /* OPTIONAL: Adds a subtle shadow like your cards */
 }
 
 /* === Code Blocks === */

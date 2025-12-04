@@ -6,8 +6,15 @@
     <description>Recent content in Home on Shashank Pratap Singh</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Dec 2025 19:48:07 -0600</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vignettes of Iowa City</title>
+      <link>http://localhost:1313/photography/iowa-city/</link>
+      <pubDate>Wed, 03 Dec 2025 19:48:07 -0600</pubDate>
+      <guid>http://localhost:1313/photography/iowa-city/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo1.jpeg&#34; alt=&#34;Sunset after storm&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo2.jpeg&#34; alt=&#34;Sunset after storm 2&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo3.jpeg&#34; alt=&#34;Ducks&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo4.jpeg&#34; alt=&#34;Moon&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo5.jpeg&#34; alt=&#34;Early morning coffee&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo6.jpeg&#34; alt=&#34;Colorful Alley&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/iowa-city/photo7.jpeg&#34; alt=&#34;Snow&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Vertex-Wise Linear Algebra</title>
       <link>http://localhost:1313/blog/vertex-wise-linear-algebra/</link>
@@ -16,11 +23,11 @@
       <description>An Invitation to Quiver Representations</description>
     </item>
     <item>
-      <title>Example Gallery - Campus in Autumn</title>
-      <link>http://localhost:1313/photography/example-gallery/</link>
-      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/photography/example-gallery/</guid>
-      <description>A collection of photos from campus during fall semester</description>
+      <title>Jazz Fest 2024, Iowa City</title>
+      <link>http://localhost:1313/photography/jazz-fest/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photography/jazz-fest/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo1.jpeg&#34; alt=&#34;Rainbow&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo2.jpeg&#34; alt=&#34;Downtown&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo3.jpeg&#34; alt=&#34;Pentacrest&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo4.jpeg&#34; alt=&#34;Dancing Crowd&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo5.jpeg&#34; alt=&#34;Dancing Crowd 2&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo6.jpeg&#34; alt=&#34;Crowd&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo7.jpeg&#34; alt=&#34;At the Graduate&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/assets/images/photography/jazz-fest/photo8.jpeg&#34; alt=&#34;Crowd&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
