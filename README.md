@@ -20,7 +20,7 @@ The content of the `public/` directory is what you upload to your web host (GitH
 
 ---
 
-## 📖 How to Use This Site
+## How to Use This Site
 
 **For content updates (adding papers, blog posts, changing bio), please read: [MAINTENANCE.md](MAINTENANCE.md)**
 
