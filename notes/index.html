@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Notes">
+  <meta property="og:description" content="One completed series on categorified linear algebra, and occasional standalone notes. More will appear as projects develop.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 04</span>
+
+
+
+<section class="opener opener--split">
+  <div>
+    <div class="opener__meta"><span class="idx"><b>04</b> / 06</span></div>
+    <h1 class="bigtitle">Notes</h1>
+    <p class="opener__sub">Notes on mathematics</p>
+    <p class="opener__lede"><p>One completed series on categorified linear algebra, and occasional standalone notes. More will appear as projects develop.</p>
+</p>
+  </div>
+  <div class="opener__art flow">
+    <span class="dim-art" style="display:block;max-width:180px"><span class="motif motif--square " aria-hidden="true" style="display:inline-block;line-height:0;ZgotmplZ">
+  <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="6"  y="20" font-family="var(--serif)" font-size="15" fill="currentColor">A</text>
+    <text x="104" y="20" font-family="var(--serif)" font-size="15" fill="currentColor">B</text>
+    <text x="6"  y="96" font-family="var(--serif)" font-size="15" fill="currentColor">C</text>
+    <text x="104" y="96" font-family="var(--serif)" font-size="15" fill="var(--accent)">D</text>
+    <line x1="24" y1="15" x2="98" y2="15" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M98 15 l-7 -3 v6 z" fill="currentColor"/>
+    <line x1="12" y1="28" x2="12" y2="80" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M12 80 l-3 -7 h6 z" fill="currentColor"/>
+    <line x1="110" y1="28" x2="110" y2="80" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M110 80 l-3 -7 h6 z" fill="currentColor"/>
+    <line x1="24" y1="90" x2="98" y2="90" stroke="var(--accent)" stroke-width="1.2"/>
+    <path d="M98 90 l-7 -3 v6 z" fill="var(--accent)"/>
+  </svg></span>
+</span>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="section__head"><span class="sec-no">§</span><h2>Most recent</h2></div>
+  <h3 style="font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.05;letter-spacing:-.01em;margin:0;max-width:20ch">The Complete Dictionary</h3>
+  <p style="font-family:var(--serif);color:var(--ink-2);max-width:54ch;margin-top:.6rem">A summary of the full series: every concept from elementary linear algebra alongside its categorical replacement, and the organizing principle that connects them.</p>
+  <p><a class="arrow" href="/notes/cat-linalg-12-dictionary/">Read note</a></p>
+</section>
+
+
+<section class="section">
+  <div class="spread">
+    <div class="section__head" style="margin:0"><span class="sec-no">§</span><h2>All notes</h2></div>
+    <span class="label tert">13 entries</span>
+  </div>
+  <div class="notelist" style="margin-top:1.2rem">
+    
+    <a class="note-row" href="/notes/cat-linalg-12-dictionary/">
+      <span class="when">2026.06.22</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · XII</p>
+        <h3>The Complete Dictionary</h3>
+        <p>A summary of the full series: every concept from elementary linear algebra alongside its categorical replacement, and the organizing principle that connects them.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-11-linear-factors/">
+      <span class="when">2026.05.30</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · XI</p>
+        <h3>Linear Factors, Generalized Eigenobjects, and Factorization</h3>
+        <p>Eigenvalues are the degree-one part of polynomial theory. Linear factors and their powers produce generalized eigenobjects, and factorization of categorified polynomials carries strictly more information than factorization of their scalar shadows.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-10-annihilators/">
+      <span class="when">2026.05.06</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · X</p>
+        <h3>Polynomial Relations and Annihilator Ideals</h3>
+        <p>The equation p(T) = 0 is not a categorical statement. It is a shadow of something richer: a natural transformation from a polynomial expression to the zero functor. Passing to the Grothendieck group recovers the classical annihilator ideal.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-09-polynomials/">
+      <span class="when">2026.04.13</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · IX</p>
+        <h3>Categorified Polynomials and the Cauchy Product</h3>
+        <p>When an endofunctor replaces a linear operator, the scalar coefficients of a polynomial must also be replaced. The right replacement is a vector space for each degree. Addition becomes direct sum and multiplication becomes tensor product.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-08-compatibility/">
+      <span class="when">2026.03.21</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · VIII</p>
+        <h3>The Same Compatibility Equation on Both Sides</h3>
+        <p>The object-side preservation theorem produced one compatibility equation. Transposing everything and asking the same question on functionals produces the same equation, written on the other side of α. This is not a coincidence.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-07-double-duals/">
+      <span class="when">2026.02.25</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · VII</p>
+        <h3>Double Duals and Eigenfunctionals</h3>
+        <p>Reflexivity is automatic for finite-dimensional vector spaces. For k-linear categories it is a genuine condition. Meanwhile the eigenvalue datum on the object side induces eigenstructure on every functional, automatically and without extra choices.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-06-functionals/">
+      <span class="when">2026.02.02</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · VI</p>
+        <h3>Categorified Functionals and Transpose</h3>
+        <p>A linear functional is a map from a vector space to the ground field. Its categorical analogue is a k-linear functor to vector spaces. Transposition, which reverses direction, becomes precomposition.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-05-triangularization/">
+      <span class="when">2026.01.10</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · V</p>
+        <h3>Triangularization and Diagonalization Without Matrices</h3>
+        <p>Classical triangularization puts operators into upper-triangular form. The categorical version has nothing to do with matrices. It is about preserving a filtration, and the matrices are what you see when you forget most of the structure.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-04-commutation/">
+      <span class="when">2025.12.17</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · IV</p>
+        <h3>Commuting Endofunctors and Preservation of Eigenspaces</h3>
+        <p>In linear algebra, commuting operators preserve each other&#39;s eigenspaces. Categorically, strict commutativity is too rigid. The right replacement is a specified natural isomorphism, and the preservation theorem then requires one compatibility equation.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-03-orbit-towers/">
+      <span class="when">2025.11.24</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · III</p>
+        <h3>Orbit Towers and Iterated Eigenmaps</h3>
+        <p>In linear algebra the Krylov sequence is a list of vectors in one space. Categorically it becomes a tower of maps across different objects. The difference is not cosmetic.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-02-eigenvalues/">
+      <span class="when">2025.11.01</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · II</p>
+        <h3>Eigenvalues as Natural Transformations</h3>
+        <p>A scalar eigenvalue assigns one number to one vector. A categorical eigenvalue assigns a coherent family of maps to every object at once. That coherence has a name: naturality.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/cat-linalg-01-operators/">
+      <span class="when">2025.10.08</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">Categorified Linear Algebra · I</p>
+        <h3>From Operators to Endofunctors</h3>
+        <p>The equation Tv = μv cannot be written in a category. This post explains what replaces it, and why the replacement is richer than the original.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+    <a class="note-row" href="/notes/vertex-wise-linear-algebra/">
+      <span class="when">2025.09.15</span>
+      <div>
+        <p class="label--accent" style="margin:0 0 .3rem">On structure</p>
+        <h3>Vertex-Wise Linear Algebra</h3>
+        <p>An invitation to quiver representations: how linear algebra on a graph recovers Jordan Normal Forms, rank theory, and ultimately connects to the classification of Lie algebras.</p>
+      </div>
+      <span class="arrow">Read</span>
+    </a>
+    
+  </div>
+  <div class="dim-art" style="max-width:300px;margin-top:2rem"><span class="motif motif--quiver " aria-hidden="true" style="display:inline-block;line-height:0;ZgotmplZ">
+  <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="14" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="74" y1="20" x2="118" y2="20" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="134" y1="20" x2="178" y2="20" stroke="var(--accent)" stroke-width="1.4"/>
+    <path d="M58 20 l-7 -3 v6 z" fill="currentColor"/>
+    <path d="M118 20 l-7 -3 v6 z" fill="currentColor"/>
+    <path d="M178 20 l-7 -3 v6 z" fill="var(--accent)"/>
+    <circle cx="10" cy="20" r="4" fill="currentColor"/>
+    <circle cx="68" cy="20" r="4" fill="currentColor"/>
+    <circle cx="126" cy="20" r="4" fill="currentColor"/>
+    <circle cx="186" cy="20" r="4" fill="var(--accent)"/>
+  </svg></span>
+</div>
+</section>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

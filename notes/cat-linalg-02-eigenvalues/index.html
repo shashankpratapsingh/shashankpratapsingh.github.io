@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eigenvalues as Natural Transformations · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-02-eigenvalues/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Eigenvalues as Natural Transformations">
+  <meta property="og:description" content="The previous post introduced $\operatorname{Rep}(S)$: the category of objects equipped with a chosen structure map $s_M : M \to S(M)$. Any morphism $M \to S(M)$ qualifies, so $\operatorname{Rep}(S)$ is large and undifferentiated. The linear algebraic eigenvalue equation $Tv = \mu v$ is more specific: the scalar $\mu$ determines the action on all vectors simultaneously, not just on one chosen vector. The categorical analogue of this specificity is a natural transformation.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-11-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-01T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2025</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2025.11.01</span>
+    <span class="label--accent">Categorified Linear Algebra · II</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">Eigenvalues as Natural Transformations</h1>
+  <p class="opener__lede" style="max-width:54ch">A scalar eigenvalue assigns one number to one vector. A categorical eigenvalue assigns a coherent family of maps to every object at once. That coherence has a name: naturality.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>The previous post introduced $\operatorname{Rep}(S)$: the category of objects equipped with a chosen structure map $s_M : M \to S(M)$.
+Any morphism $M \to S(M)$ qualifies, so $\operatorname{Rep}(S)$ is large and undifferentiated.
+The linear algebraic eigenvalue equation $Tv = \mu v$ is more specific: the scalar $\mu$ determines the action on <em>all</em> vectors simultaneously, not just on one chosen vector.
+The categorical analogue of this specificity is a natural transformation.</p>
+<h2 id="what-a-scalar-eigenvalue-really-provides">What a scalar eigenvalue really provides</h2>
+<p>In ordinary linear algebra, once $\mu$ is fixed, the map $v \mapsto \mu v$ is defined for every $v \in V$ at once.
+It is not a separate choice for each $v$.
+Moreover, it interacts correctly with linear maps: if $f : V \to W$ is linear and $\mu$ acts on both, then $f(\mu v) = \mu f(v)$.
+This coherence is exactly what naturality encodes.</p>
+<h2 id="the-definition-of-a-categorified-eigenvalue">The definition of a categorified eigenvalue</h2>
+<p><strong>Definition.</strong> A <em>categorified eigenvalue</em> for $S$ is a natural transformation
+</p>
+$$\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S.$$<p>For every object $M \in \mathcal{A}$, the component $\lambda_M : M \to S(M)$ is a specific morphism.
+Naturality requires that for every morphism $f : M \to N$ in $\mathcal{A}$,
+</p>
+$$S(f) \circ \lambda_M = \lambda_N \circ f.$$<p>This is the same commutativity condition as for morphisms in $\operatorname{Rep}(S)$, but now it holds for <em>all</em> morphisms in $\mathcal{A}$, not just the ones we select.</p>
+<p><strong>Example.</strong> Take $\mathcal{A} = \operatorname{Vect}_k$ and $S = \operatorname{id}$.
+A natural transformation $\lambda : \operatorname{id} \Rightarrow \operatorname{id}$ assigns to each vector space $V$ a linear map $\lambda_V : V \to V$, naturally in $V$.
+By the Yoneda lemma, such a transformation is determined by a scalar $\mu \in k$, acting as multiplication by $\mu$ on each $V$.
+So in this case, categorified eigenvalues are literally scalars.
+The definition recovers the classical notion.</p>
+<h2 id="the-canonical-eigenobject-category">The canonical eigenobject category</h2>
+<p>Every object $M \in \mathcal{A}$ together with the component $\lambda_M$ gives a representation $(M, \lambda_M) \in \operatorname{Rep}(S)$.</p>
+<p><strong>Definition.</strong> The <em>canonical $\lambda$-eigenobject category</em> is
+</p>
+$$\operatorname{Eig}_\lambda(S) = \{(M, \lambda_M) : M \in \mathcal{A}\} \subseteq \operatorname{Rep}(S).$$<p>A morphism $(M, \lambda_M) \to (N, \lambda_N)$ in $\operatorname{Eig}_\lambda(S)$ is any morphism $f : M \to N$ in $\mathcal{A}$.
+The compatibility condition $S(f) \circ \lambda_M = \lambda_N \circ f$ is automatically satisfied by naturality of $\lambda$.</p>
+<p>This observation yields the main structural result of this post.</p>
+<p><strong>Theorem.</strong> The forgetful functor $U : \operatorname{Eig}_\lambda(S) \to \mathcal{A}$, sending $(M, \lambda_M) \mapsto M$, is an isomorphism of categories.</p>
+<p><em>Proof.</em> The functor $U$ is the identity on objects (every $M \in \mathcal{A}$ appears as $(M, \lambda_M)$) and the identity on morphisms (every morphism in $\mathcal{A}$ satisfies the eigenobject compatibility by naturality).
+An inverse functor sends $M$ to $(M, \lambda_M)$ and acts as the identity on morphisms.
+Both composites are the identity. $\square$</p>
+<h2 id="why-this-result-is-counterintuitive">Why this result is counterintuitive</h2>
+<p>In ordinary linear algebra, an eigenspace $E_\mu(T) \subseteq V$ is a proper subspace (smaller than $V$, except in degenerate cases).
+The theorem says that the categorical eigenobject category is <em>not</em> smaller than $\mathcal{A}$; it is isomorphic to all of it.</p>
+<p>This is not a failure of the definition.
+It reflects the fact that a natural transformation $\lambda$ attaches eigenstructure to every object uniformly.
+There is no object left out, so no object is excluded from the eigenobject category.</p>
+<p>The selectivity of classical eigenspaces arises because not every vector satisfies $Tv = \mu v$.
+At the categorical level, the structure map is not a condition to be satisfied; it is data to be supplied.
+A natural transformation supplies it for every object simultaneously.</p>
+<h2 id="what-differs-between--and">What differs between $\operatorname{Rep}(S)$ and $\operatorname{Eig}_\lambda(S)$</h2>
+<p>The difference is not in the objects or morphisms that appear.
+It is in the <em>source</em> of the structure maps.</p>
+<p>In $\operatorname{Rep}(S)$: each object $(M, s_M)$ carries a map $s_M : M \to S(M)$ chosen independently for each $M$.</p>
+<p>In $\operatorname{Eig}_\lambda(S)$: each object $(M, \lambda_M)$ carries the specific map $\lambda_M$ determined globally by the natural transformation $\lambda$.</p>
+<p>The structure is more rigid in $\operatorname{Eig}_\lambda(S)$, which is exactly what makes it the correct analogue of a classical eigenspace.</p>
+<h2 id="the-next-question">The next question</h2>
+<p>The natural transformation $\lambda$ acts on $M$ once to give $\lambda_M : M \to S(M)$.
+It can also be applied again, to $S(M)$, giving $\lambda_{S(M)} : S(M) \to S^2(M)$.
+Composing, one gets a map $M \to S^2(M)$.
+This is the beginning of an orbit tower, which is the subject of the next post.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">4 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

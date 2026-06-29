@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polynomial Relations and Annihilator Ideals · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-10-annihilators/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Polynomial Relations and Annihilator Ideals">
+  <meta property="og:description" content="In ordinary linear algebra, the minimal polynomial of a vector $v$ with respect to an operator $T$ is the monic polynomial $p$ of least degree such that $p(T)v = 0$. The equation $p(T)v = 0$ is a statement about an element of a vector space. Categorically, neither “element” nor “zero” transfers directly. The correct replacement involves natural transformations, and the classical ideal theory emerges only after passing to a decategorified shadow.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-05-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-06T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2026</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2026.05.06</span>
+    <span class="label--accent">Categorified Linear Algebra · X</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">Polynomial Relations and Annihilator Ideals</h1>
+  <p class="opener__lede" style="max-width:54ch">The equation p(T) = 0 is not a categorical statement. It is a shadow of something richer: a natural transformation from a polynomial expression to the zero functor. Passing to the Grothendieck group recovers the classical annihilator ideal.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>In ordinary linear algebra, the minimal polynomial of a vector $v$ with respect to an operator $T$ is the monic polynomial $p$ of least degree such that $p(T)v = 0$.
+The equation $p(T)v = 0$ is a statement about an element of a vector space.
+Categorically, neither &ldquo;element&rdquo; nor &ldquo;zero&rdquo; transfers directly.
+The correct replacement involves natural transformations, and the classical ideal theory emerges only after passing to a decategorified shadow.</p>
+<h2 id="polynomial-relations-as-natural-transformations">Polynomial relations as natural transformations</h2>
+<p><strong>Definition.</strong> A <em>polynomial relation</em> on $S$ is a natural transformation
+</p>
+$$\rho : P(S) \Rightarrow 0,$$<p>
+where $0$ denotes the zero functor (sending every object to the zero object).</p>
+<p>At each object $M$, the component $\rho_M : P(S)(M) \to 0$ is a map to the zero object.</p>
+<p>In an abelian category, a morphism to the zero object is the zero morphism.
+So a polynomial relation at the level of objects says that the functor $P(S)$ sends every object to zero.
+But the natural transformation $\rho$ is the relation as structure, not merely as a truth value.</p>
+<p><strong>Warning.</strong> A polynomial expression $P(S)$ is not a relation.
+A polynomial expression is a functor: an object in $\operatorname{Fun}_k(\mathcal{A}, \mathcal{A})$.
+A relation is additional data: a natural transformation $P(S) \Rightarrow 0$.
+The two are not the same and should not be confused.</p>
+<h2 id="the-grothendieck-group-and-the-annihilator-ideal">The Grothendieck group and the annihilator ideal</h2>
+<p>To recover ideal theory, we pass to the Grothendieck group.
+Assume $\mathcal{A}$ is an exact $k$-linear category.</p>
+<p><strong>Definition.</strong> The <em>Grothendieck group</em> $K_0(\mathcal{A})$ is the abelian group generated by isomorphism classes $[M]$ of objects, with the relation $[M] = [M'] + [M'']$ for every short exact sequence $0 \to M' \to M \to M'' \to 0$.</p>
+<p>An endofunctor $S$ that is exact induces a group homomorphism $[S] : K_0(\mathcal{A}) \to K_0(\mathcal{A})$ by $[M] \mapsto [S(M)]$.
+Iteration gives $[S]^n([M]) = [S^n(M)]$.
+The group $K_0(\mathcal{A})$ becomes a $k[x]$-module by $x \cdot [M] = [S(M)]$.</p>
+<p><strong>Definition.</strong> For $[M] \in K_0(\mathcal{A})$, the <em>annihilator ideal</em> is
+</p>
+$$\operatorname{Ann}_{k[x]}([M]) = \{p(x) \in k[x] : p([S])[M] = 0 \text{ in } K_0(\mathcal{A})\}.$$<p><strong>Proposition.</strong> The set $\operatorname{Ann}_{k[x]}([M])$ is an ideal in $k[x]$.</p>
+<p><em>Proof.</em> The zero polynomial satisfies $0 \cdot [M] = 0$ by definition of the module structure.
+If $p([S])[M] = 0$ and $q([S])[M] = 0$, then $(p + q)([S])[M] = p([S])[M] + q([S])[M] = 0$.
+If $p([S])[M] = 0$ and $r(x) \in k[x]$, then $(rp)([S])[M] = r([S]) \circ p([S])[M] = r([S])(0) = 0$.
+Both closure conditions hold, so $\operatorname{Ann}_{k[x]}([M])$ is an ideal. $\square$</p>
+<p>If this ideal is nonzero, its monic generator is the <em>minimal polynomial of $[M]$ with respect to $S$</em>.</p>
+<h2 id="what--forgets">What $K_0$ forgets</h2>
+<p>The passage from $\mathcal{A}$ to $K_0(\mathcal{A})$ forgets morphisms and all non-split extensions.
+The annihilator ideal in $K_0(\mathcal{A})$ captures ideal-theoretic control over $[M]$, but it does not determine the categorical polynomial relations for $M$.</p>
+<p>A categorical polynomial relation $P(S) \Rightarrow 0$ implies that $|P|([S])[M] = 0$ in $K_0(\mathcal{A})$, so $|P|(x) \in \operatorname{Ann}_{k[x]}([M])$.
+The converse fails in general: an element of the annihilator ideal need not lift to a categorical relation.</p>
+<p>The $K_0$ annihilator is a shadow of the categorical theory, not a substitute for it.</p>
+<h2 id="the-relation-to-linear-factors">The relation to linear factors</h2>
+<p>The classical minimal polynomial factors into linear factors $x - \mu$ over an algebraically closed field.
+Each linear factor corresponds to an eigenvalue.
+Categorically, a linear factor datum is exactly a natural transformation $\lambda : \operatorname{id} \Rightarrow S$.
+Higher-order factors correspond to generalized eigendata built from iterated application of $\lambda$.</p>
+<p>This connection between polynomial relations, annihilator ideals, and linear factors is the subject of the next post.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

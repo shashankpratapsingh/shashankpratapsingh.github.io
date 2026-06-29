@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commuting Endofunctors and Preservation of Eigenspaces · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-04-commutation/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Commuting Endofunctors and Preservation of Eigenspaces">
+  <meta property="og:description" content="If two operators on a vector space commute, $ST = TS$, then $T$ maps each eigenspace of $S$ into itself. The proof is one line: if $Sv = \mu v$ and $ST = TS$, then $S(Tv) = T(Sv) = T(\mu v) = \mu(Tv)$.
+The categorical analogue of this result requires more care, because strict equality $ST = TS$ of functors is almost never the right condition. Two functors that agree on every object and every morphism are equal, but in practice one works with functors that are isomorphic, not literally equal. The correct replacement for the equation $ST = TS$ is a specified natural isomorphism $\alpha : ST \xRightarrow{\sim} TS$.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-12-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-17T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2025</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2025.12.17</span>
+    <span class="label--accent">Categorified Linear Algebra · IV</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">Commuting Endofunctors and Preservation of Eigenspaces</h1>
+  <p class="opener__lede" style="max-width:54ch">In linear algebra, commuting operators preserve each other&#39;s eigenspaces. Categorically, strict commutativity is too rigid. The right replacement is a specified natural isomorphism, and the preservation theorem then requires one compatibility equation.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>If two operators on a vector space commute, $ST = TS$, then $T$ maps each eigenspace of $S$ into itself.
+The proof is one line: if $Sv = \mu v$ and $ST = TS$, then $S(Tv) = T(Sv) = T(\mu v) = \mu(Tv)$.</p>
+<p>The categorical analogue of this result requires more care, because strict equality $ST = TS$ of functors is almost never the right condition.
+Two functors that agree on every object and every morphism are equal, but in practice one works with functors that are <em>isomorphic</em>, not literally equal.
+The correct replacement for the equation $ST = TS$ is a specified natural isomorphism $\alpha : ST \xRightarrow{\sim} TS$.</p>
+<h2 id="commutation-data">Commutation data</h2>
+<p><strong>Definition.</strong> A <em>commutation datum</em> for endofunctors $S, T : \mathcal{A} \to \mathcal{A}$ is a natural isomorphism $\alpha : ST \xRightarrow{\sim} TS$.</p>
+<p>The datum $\alpha$ assigns to every object $M$ an isomorphism $\alpha_M : S(T(M)) \xrightarrow{\sim} T(S(M))$, naturally in $M$.</p>
+<h2 id="lifting--to">Lifting $T$ to $\operatorname{Rep}(S)$</h2>
+<p>Given a commutation datum $\alpha$, the functor $T$ lifts to an endofunctor $\widetilde{T}$ of $\operatorname{Rep}(S)$.</p>
+<p><strong>Definition.</strong> For $(M, s_M) \in \operatorname{Rep}(S)$, define
+</p>
+$$\widetilde{T}(M, s_M) = \left(T(M),\ \alpha_M^{-1} \circ T(s_M)\right).$$<p>The structure map is the composite
+</p>
+$$T(M) \xrightarrow{T(s_M)} T(S(M)) \xrightarrow{\alpha_M^{-1}} S(T(M)).$$<p><strong>Proposition.</strong> The assignment $\widetilde{T}$ is a well-defined endofunctor of $\operatorname{Rep}(S)$.</p>
+<p><em>Proof.</em> We check that for a morphism $f : (M, s_M) \to (N, s_N)$, the morphism $T(f) : T(M) \to T(N)$ satisfies the compatibility condition for $\widetilde{T}$.
+We need
+</p>
+$$S(T(f)) \circ \alpha_M^{-1} \circ T(s_M) = \alpha_N^{-1} \circ T(s_N) \circ T(f).$$<p>
+Applying $\alpha_N$ on the left to both sides and using the naturality of $\alpha$, which gives $\alpha_N \circ S(T(f)) = T(S(f)) \circ \alpha_M$, together with the morphism condition $S(f) \circ s_M = s_N \circ f$ and functoriality of $T$, the equation holds. $\square$</p>
+<h2 id="the-preservation-theorem">The preservation theorem</h2>
+<p>Not every lift $\widetilde{T}$ preserves canonical eigenobjects.
+The following theorem identifies exactly when it does.</p>
+<p><strong>Theorem.</strong> The lifted functor $\widetilde{T}$ preserves $\operatorname{Eig}_\lambda(S)$ if and only if
+</p>
+$$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$$<p>
+for every object $M \in \mathcal{A}$.</p>
+<p><em>Proof.</em> An object $(M, \lambda_M)$ lies in $\operatorname{Eig}_\lambda(S)$, and its image under $\widetilde{T}$ is $(T(M), \alpha_M^{-1} \circ T(\lambda_M))$.
+For this image to lie in $\operatorname{Eig}_\lambda(S)$, its structure map must equal $\lambda_{T(M)}$.
+That is precisely the stated equation. $\square$</p>
+<h2 id="comparing-with-linear-algebra">Comparing with linear algebra</h2>
+<p>In ordinary linear algebra, the classical result is:
+</p>
+$$ST = TS \quad \Rightarrow \quad T(E_\mu(S)) \subseteq E_\mu(S).$$<p>The categorical version is:
+</p>
+$$\text{commutation datum } \alpha : ST \xRightarrow{\sim} TS \text{ and } \alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)} \quad \Rightarrow \quad \widetilde{T} \text{ preserves } \operatorname{Eig}_\lambda(S).$$<p>The compatibility equation $\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$ is the categorical replacement for the computation $S(Tv) = T(Sv) = \mu(Tv)$.
+It says that applying $T$ to the eigenstructure of $M$ and then using $\alpha$ to reorder gives the same result as the eigenstructure of $T(M)$ directly.</p>
+<p>This equation will reappear at the end of the series, on the functional side.
+It is the central compatibility condition of the whole theory.</p>
+<h2 id="the-next-obstruction">The next obstruction</h2>
+<p>The commutation theorem handles one endofunctor $T$ acting on $\operatorname{Eig}_\lambda(S)$.
+A natural question is whether a family of endofunctors can simultaneously preserve a common filtration of $\mathcal{A}$.
+That is the categorical analogue of simultaneous triangularization, and it is the subject of the next post.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

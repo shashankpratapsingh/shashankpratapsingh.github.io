@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Complete Dictionary · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-12-dictionary/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="The Complete Dictionary">
+  <meta property="og:description" content="This is the capstone post of the series. It does not prove new results. It collects the complete translation between linear algebra and its categorification, states the series thesis precisely, and notes what the categorical version adds beyond the classical one.
+The dictionary Linear algebra Categorified linear algebra Vector $v \in V$ Object $M \in \mathcal{A}$ Vector space $V$ $k$-linear category $\mathcal{A}$ Linear operator $T : V \to V$ Endofunctor $S : \mathcal{A} \to \mathcal{A}$ Action $Tv$ Image $S(M)$ Eigenvalue equation $Tv = \mu v$ Structure map $s_M : M \to S(M)$ Eigenvalue $\mu \in k$ Natural transformation $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$ Canonical eigenvector Canonical $\lambda$-eigenobject $(M, \lambda_M)$ Eigenspace $E_\mu(T)$ Category $\operatorname{Eig}_\lambda(S) \subseteq \operatorname{Rep}(S)$ Krylov sequence $v, Tv, T^2v, \ldots$ Orbit tower $M \to S(M) \to S^2(M) \to \cdots$ Commuting operators $ST = TS$ Commutation datum $\alpha : ST \xRightarrow{\sim} TS$ Preservation $T(E_\mu(S)) \subseteq E_\mu(S)$ $\widetilde{T}$ preserves $\operatorname{Eig}_\lambda(S)$ Compatibility condition $\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$ Invariant flag Filtration $\mathcal{A}_0 \subseteq \cdots \subseteq \mathcal{A}_n = \mathcal{A}$ Triangularization Preservation of filtration with canonical quotient eigendata Diagonalization Decomposition $\mathcal{A} \simeq \bigoplus_\beta \mathcal{A}_\beta$ into stable eigenblocks Linear functional $V \to k$ $k$-linear functor $F : \mathcal{A} \to \operatorname{Vect}_k$ Dual space $V^*$ $\mathcal{A}^* = \operatorname{Fun}_k(\mathcal{A}, \operatorname{Vect}_k)$ Transpose $L^* : W^* \to V^*$ Precomposition: $L^*(F) = F \circ L$ Double dual $V^{**}$ $\mathcal{A}^{**} = \operatorname{Fun}_k(\mathcal{A}^*, \operatorname{Vect}_k)$ Reflexivity $V \cong V^{**}$ Equivalence $J_{\mathcal{A}} : \mathcal{A} \xrightarrow{\sim} \mathcal{A}^{**}$ (a condition, not automatic) Eigenvector of $T^*$ Canonical $\lambda^*$-eigenfunctional $(F, F(\lambda))$ Polynomial coefficient $a_i \in k$ Coefficient vector space $V_i$ Polynomial in $T$ $P(S) = \bigoplus_i V_i \otimes S^i$ Polynomial multiplication (Cauchy) $P(S) \circ Q(S) \cong \bigoplus_n \left(\bigoplus_{i&#43;j=n} V_i \otimes W_j\right) \otimes S^n$ Polynomial relation $p(T) = 0$ Natural transformation $P(S) \Rightarrow 0$ Annihilator ideal in $k[x]$ $\operatorname{Ann}_{k[x]}([M])$ in $K_0(\mathcal{A})$ Linear factor $x - \mu$ Linear factor datum $\lambda : \operatorname{id} \Rightarrow S$ Generalized eigenspace $(T - \mu)^n v = 0$ Generalized $\lambda$-relation of rank $n$ Polynomial factorization $p = qr$ Factorization datum $P(S) \cong Q(S) \circ R(S)$ What the categorified version adds The dictionary above might suggest that categorification is a straightforward substitution. It is not. Three features of the categorical theory have no classical counterpart.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-06-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-22T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2026</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2026.06.22</span>
+    <span class="label--accent">Categorified Linear Algebra · XII</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">The Complete Dictionary</h1>
+  <p class="opener__lede" style="max-width:54ch">A summary of the full series: every concept from elementary linear algebra alongside its categorical replacement, and the organizing principle that connects them.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>This is the capstone post of the series.
+It does not prove new results.
+It collects the complete translation between linear algebra and its categorification, states the series thesis precisely, and notes what the categorical version adds beyond the classical one.</p>
+<h2 id="the-dictionary">The dictionary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Linear algebra</th>
+          <th>Categorified linear algebra</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Vector $v \in V$</td>
+          <td>Object $M \in \mathcal{A}$</td>
+      </tr>
+      <tr>
+          <td>Vector space $V$</td>
+          <td>$k$-linear category $\mathcal{A}$</td>
+      </tr>
+      <tr>
+          <td>Linear operator $T : V \to V$</td>
+          <td>Endofunctor $S : \mathcal{A} \to \mathcal{A}$</td>
+      </tr>
+      <tr>
+          <td>Action $Tv$</td>
+          <td>Image $S(M)$</td>
+      </tr>
+      <tr>
+          <td>Eigenvalue equation $Tv = \mu v$</td>
+          <td>Structure map $s_M : M \to S(M)$</td>
+      </tr>
+      <tr>
+          <td>Eigenvalue $\mu \in k$</td>
+          <td>Natural transformation $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$</td>
+      </tr>
+      <tr>
+          <td>Canonical eigenvector</td>
+          <td>Canonical $\lambda$-eigenobject $(M, \lambda_M)$</td>
+      </tr>
+      <tr>
+          <td>Eigenspace $E_\mu(T)$</td>
+          <td>Category $\operatorname{Eig}_\lambda(S) \subseteq \operatorname{Rep}(S)$</td>
+      </tr>
+      <tr>
+          <td>Krylov sequence $v, Tv, T^2v, \ldots$</td>
+          <td>Orbit tower $M \to S(M) \to S^2(M) \to \cdots$</td>
+      </tr>
+      <tr>
+          <td>Commuting operators $ST = TS$</td>
+          <td>Commutation datum $\alpha : ST \xRightarrow{\sim} TS$</td>
+      </tr>
+      <tr>
+          <td>Preservation $T(E_\mu(S)) \subseteq E_\mu(S)$</td>
+          <td>$\widetilde{T}$ preserves $\operatorname{Eig}_\lambda(S)$</td>
+      </tr>
+      <tr>
+          <td>Compatibility condition</td>
+          <td>$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$</td>
+      </tr>
+      <tr>
+          <td>Invariant flag</td>
+          <td>Filtration $\mathcal{A}_0 \subseteq \cdots \subseteq \mathcal{A}_n = \mathcal{A}$</td>
+      </tr>
+      <tr>
+          <td>Triangularization</td>
+          <td>Preservation of filtration with canonical quotient eigendata</td>
+      </tr>
+      <tr>
+          <td>Diagonalization</td>
+          <td>Decomposition $\mathcal{A} \simeq \bigoplus_\beta \mathcal{A}_\beta$ into stable eigenblocks</td>
+      </tr>
+      <tr>
+          <td>Linear functional $V \to k$</td>
+          <td>$k$-linear functor $F : \mathcal{A} \to \operatorname{Vect}_k$</td>
+      </tr>
+      <tr>
+          <td>Dual space $V^*$</td>
+          <td>$\mathcal{A}^* = \operatorname{Fun}_k(\mathcal{A}, \operatorname{Vect}_k)$</td>
+      </tr>
+      <tr>
+          <td>Transpose $L^* : W^* \to V^*$</td>
+          <td>Precomposition: $L^*(F) = F \circ L$</td>
+      </tr>
+      <tr>
+          <td>Double dual $V^{**}$</td>
+          <td>$\mathcal{A}^{**} = \operatorname{Fun}_k(\mathcal{A}^*, \operatorname{Vect}_k)$</td>
+      </tr>
+      <tr>
+          <td>Reflexivity $V \cong V^{**}$</td>
+          <td>Equivalence $J_{\mathcal{A}} : \mathcal{A} \xrightarrow{\sim} \mathcal{A}^{**}$ (a condition, not automatic)</td>
+      </tr>
+      <tr>
+          <td>Eigenvector of $T^*$</td>
+          <td>Canonical $\lambda^*$-eigenfunctional $(F, F(\lambda))$</td>
+      </tr>
+      <tr>
+          <td>Polynomial coefficient $a_i \in k$</td>
+          <td>Coefficient vector space $V_i$</td>
+      </tr>
+      <tr>
+          <td>Polynomial in $T$</td>
+          <td>$P(S) = \bigoplus_i V_i \otimes S^i$</td>
+      </tr>
+      <tr>
+          <td>Polynomial multiplication (Cauchy)</td>
+          <td>$P(S) \circ Q(S) \cong \bigoplus_n \left(\bigoplus_{i+j=n} V_i \otimes W_j\right) \otimes S^n$</td>
+      </tr>
+      <tr>
+          <td>Polynomial relation $p(T) = 0$</td>
+          <td>Natural transformation $P(S) \Rightarrow 0$</td>
+      </tr>
+      <tr>
+          <td>Annihilator ideal in $k[x]$</td>
+          <td>$\operatorname{Ann}_{k[x]}([M])$ in $K_0(\mathcal{A})$</td>
+      </tr>
+      <tr>
+          <td>Linear factor $x - \mu$</td>
+          <td>Linear factor datum $\lambda : \operatorname{id} \Rightarrow S$</td>
+      </tr>
+      <tr>
+          <td>Generalized eigenspace $(T - \mu)^n v = 0$</td>
+          <td>Generalized $\lambda$-relation of rank $n$</td>
+      </tr>
+      <tr>
+          <td>Polynomial factorization $p = qr$</td>
+          <td>Factorization datum $P(S) \cong Q(S) \circ R(S)$</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="what-the-categorified-version-adds">What the categorified version adds</h2>
+<p>The dictionary above might suggest that categorification is a straightforward substitution.
+It is not.
+Three features of the categorical theory have no classical counterpart.</p>
+<p><strong>Structure versus condition.</strong> In linear algebra, the eigenvalue equation $Tv = \mu v$ is a condition on $v$.
+A vector either satisfies it or does not.
+In the categorical theory, the structure map $s_M : M \to S(M)$ is <em>data</em> attached to $M$.
+Every object of $\mathcal{A}$ is an eigenobject once a map is chosen; the question is which map is chosen.</p>
+<p><strong>Isomorphism class versus equality.</strong> The commutation condition $ST = TS$ in linear algebra is an equality.
+The categorical version is a natural isomorphism $\alpha : ST \xRightarrow{\sim} TS$, which is extra data, not a property.
+Two different natural isomorphisms $\alpha$ and $\alpha'$ give two different commutation data and two different lifted functors.</p>
+<p><strong>Scalar shadow versus internal structure.</strong> The scalar shadow of a categorified polynomial remembers only dimensions.
+The polynomial itself remembers the coefficient spaces and the isomorphisms between them.
+A factorization of the scalar shadow does not determine a factorization datum; the factorization datum carries strictly more information.</p>
+<h2 id="the-series-thesis">The series thesis</h2>
+<p>The series began with one question:</p>
+<blockquote>
+<p>What remains of elementary linear algebra if a vector space is replaced by a $k$-linear category and a linear operator is replaced by an endofunctor?</p>
+</blockquote>
+<p>The answer, in one sentence:</p>
+<blockquote>
+<p>The familiar path from eigenvectors to minimal polynomials survives categorification, but only after every equality is replaced by coherent structure and every scalar coefficient is replaced by a space of coefficients.</p>
+</blockquote>
+<p>Categorification does not copy equations literally.
+It replaces equalities by structure maps, conditions by data, and compatibility equations by naturality diagrams.
+The classical theory is the shadow cast when all that structure is compressed into numbers by taking dimensions and passing to $K_0$.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

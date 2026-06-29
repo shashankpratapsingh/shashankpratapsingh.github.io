@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Double Duals and Eigenfunctionals · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-07-double-duals/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Double Duals and Eigenfunctionals">
+  <meta property="og:description" content="The previous post defined the canonical functor $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ by $J_{\mathcal{A}}(M)(F) = F(M)$. For a finite-dimensional vector space $V$, the analogous map $V \to V^{**}$ is an isomorphism. The categorical version need not be an equivalence, and the failure of reflexivity is a meaningful geometric and algebraic datum, not a defect of the definition.
+Reflexivity as a condition Definition. A $k$-linear category $\mathcal{A}$ is reflexive if $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ is an equivalence of categories.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-02-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-25T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2026</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2026.02.25</span>
+    <span class="label--accent">Categorified Linear Algebra · VII</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">Double Duals and Eigenfunctionals</h1>
+  <p class="opener__lede" style="max-width:54ch">Reflexivity is automatic for finite-dimensional vector spaces. For k-linear categories it is a genuine condition. Meanwhile the eigenvalue datum on the object side induces eigenstructure on every functional, automatically and without extra choices.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>The previous post defined the canonical functor $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ by $J_{\mathcal{A}}(M)(F) = F(M)$.
+For a finite-dimensional vector space $V$, the analogous map $V \to V^{**}$ is an isomorphism.
+The categorical version need not be an equivalence, and the failure of reflexivity is a meaningful geometric and algebraic datum, not a defect of the definition.</p>
+<h2 id="reflexivity-as-a-condition">Reflexivity as a condition</h2>
+<p><strong>Definition.</strong> A $k$-linear category $\mathcal{A}$ is <em>reflexive</em> if $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ is an equivalence of categories.</p>
+<p>For $\mathcal{A} = \operatorname{Vect}_k^{\text{fd}}$, the category of finite-dimensional $k$-vector spaces, the functor $J_{\mathcal{A}}$ is an equivalence.
+This recovers the classical fact.</p>
+<p>For $\mathcal{A} = \operatorname{Mod}(A)$, the category of all modules over a $k$-algebra $A$, the functor $J_{\mathcal{A}}$ is generally not an equivalence.
+The failure encodes information about the size and structure of $A$.</p>
+<p>The key point is that in the categorical setting, reflexivity must be checked.
+The classical proof for finite-dimensional spaces relies on dimension counts that have no direct categorical counterpart.</p>
+<h2 id="eigenfunctionals">Eigenfunctionals</h2>
+<p>The eigenvalue datum $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$ induces eigenstructure on every functional automatically.</p>
+<p><strong>Definition.</strong> The <em>functional-side representation category</em> $\operatorname{Rep}(S^*)$ has as objects pairs $(F, \sigma_F)$ where $F : \mathcal{A} \to \operatorname{Vect}_k$ is a $k$-linear functor and $\sigma_F : F \Rightarrow F \circ S$ is a natural transformation.</p>
+<p>A morphism $\eta : (F, \sigma_F) \to (G, \sigma_G)$ in $\operatorname{Rep}(S^*)$ is a natural transformation $\eta : F \Rightarrow G$ satisfying $\sigma_G \circ \eta = ({\eta \circ S}) \circ \sigma_F$, where $\eta \circ S$ denotes the whiskering.</p>
+<p>Given the natural transformation $\lambda : \operatorname{id} \Rightarrow S$ and any functional $F \in \mathcal{A}^*$, define
+</p>
+$$F(\lambda) : F \Rightarrow F \circ S$$<p>
+by $(F(\lambda))_M = F(\lambda_M) : F(M) \to F(S(M))$.</p>
+<p><strong>Proposition.</strong> The natural transformation $F(\lambda)$ is well-defined: it is natural in $M$.</p>
+<p><em>Proof.</em> For a morphism $f : M \to N$, functoriality of $F$ gives $F(S(f)) \circ F(\lambda_M) = F(S(f) \circ \lambda_M)$.
+Naturality of $\lambda$ gives $S(f) \circ \lambda_M = \lambda_N \circ f$, so $F(S(f)) \circ F(\lambda_M) = F(\lambda_N \circ f) = F(\lambda_N) \circ F(f)$.
+This is the naturality condition for $F(\lambda)$. $\square$</p>
+<p><strong>Definition.</strong> The <em>canonical $\lambda$-eigenfunctional</em> associated to $F$ is the pair $(F, F(\lambda))$.</p>
+<p>The category $\operatorname{Eig}_{\lambda^*}(S^*)$ consists of all canonical $\lambda$-eigenfunctionals, with morphisms those natural transformations $\eta : F \Rightarrow G$ satisfying the functorial compatibility with $F(\lambda)$ and $G(\lambda)$.</p>
+<h2 id="the-eigenvalue-datum-induces-a-natural-transformation-on">The eigenvalue datum induces a natural transformation on $\mathcal{A}^*$</h2>
+<p><strong>Theorem.</strong> The assignment $F \mapsto F(\lambda)$ defines a natural transformation
+</p>
+$$\lambda^* : \operatorname{id}_{\mathcal{A}^*} \Rightarrow S^*.$$<p><em>Proof.</em> The component of $\lambda^*$ at $F$ is $F(\lambda) : F \Rightarrow F \circ S = S^*(F)$.
+Naturality of $\lambda^*$ requires: for a natural transformation $\eta : F \Rightarrow G$, the square
+</p>
+$$(\eta \circ S) \circ F(\lambda) = G(\lambda) \circ \eta$$<p>
+commutes.
+At an object $M$, this is $\eta_{S(M)} \circ F(\lambda_M) = G(\lambda_M) \circ \eta_M$, which holds by naturality of $\eta$ applied to the morphism $\lambda_M : M \to S(M)$. $\square$</p>
+<h2 id="the-structure-of-the-result">The structure of the result</h2>
+<p>The object side: $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$ is given.
+The functional side: $\lambda^* : \operatorname{id}_{\mathcal{A}^*} \Rightarrow S^*$ is derived from it.</p>
+<p>No choices are made on the functional side.
+The eigenvalue datum on objects induces, canonically, an eigenvalue datum on functionals.
+This is the functional analogue of the fact that a scalar $\mu$ determines its action on the dual space as well as on the original space.</p>
+<p>The next post asks: what happens to the compatibility equation $\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$ when everything is transposed?</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

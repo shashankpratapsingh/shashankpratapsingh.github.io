@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Representation Theory on Shashank Pratap Singh</title>
+    <link>https://shashankpratapsingh.github.io/tags/representation-theory/</link>
+    <description>Recent content in Representation Theory on Shashank Pratap Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shashankpratapsingh.github.io/tags/representation-theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vertex-Wise Linear Algebra</title>
+      <link>https://shashankpratapsingh.github.io/notes/vertex-wise-linear-algebra/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/vertex-wise-linear-algebra/</guid>
+      <description>&lt;p&gt;If you have ever taken a linear algebra course, you likely spent a significant amount of time analyzing square matrices. You calculated determinants, found eigenvalues, and perhaps wrestled with the Jordan Normal Form.&lt;/p&gt;&#xA;&lt;p&gt;Later, you might have realized that a matrix is essentially a coordinate-dependent projection of a more fundamental object: a linear map between vector spaces. A matrix is what we obtain when we fix a basis.&lt;/p&gt;&#xA;&lt;p&gt;But there is a third perspective. This approach takes the &amp;ldquo;vector space and map&amp;rdquo; intuition and lifts it into a combinatorial setting. This perspective allows us to perform linear algebra not just locally at a single &lt;strong&gt;node&lt;/strong&gt;, but across a network. This is the theory of &lt;strong&gt;Quiver Representations&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://shashankpratapsingh.github.io/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/research/</guid>
+      <description>&lt;p&gt;The organizing tool throughout is the quiver: a combinatorial object that encodes the structure of a module category in a form precise enough to classify, and concrete enough to compute with.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

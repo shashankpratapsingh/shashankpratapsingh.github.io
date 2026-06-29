@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Same Compatibility Equation on Both Sides · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-08-compatibility/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="The Same Compatibility Equation on Both Sides">
+  <meta property="og:description" content="Post IV established that the lifted functor $\widetilde{T}$ preserves canonical $\lambda$-eigenobjects if and only if $$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$$ for every object $M$. This is the central compatibility equation of the object side.
+Now transpose everything. The commutation datum $\alpha : ST \Rightarrow TS$ transposes to a natural isomorphism $\alpha^* : T^* S^* \Rightarrow S^* T^*$. The lifted functor $T^*$ acts on $\mathcal{A}^*$, and the question is: when does $T^*$ preserve canonical $\lambda^*$-eigenfunctionals?">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2026-03-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-21T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2026</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2026.03.21</span>
+    <span class="label--accent">Categorified Linear Algebra · VIII</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">The Same Compatibility Equation on Both Sides</h1>
+  <p class="opener__lede" style="max-width:54ch">The object-side preservation theorem produced one compatibility equation. Transposing everything and asking the same question on functionals produces the same equation, written on the other side of α. This is not a coincidence.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>Post IV established that the lifted functor $\widetilde{T}$ preserves canonical $\lambda$-eigenobjects if and only if
+</p>
+$$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$$<p>
+for every object $M$.
+This is the central compatibility equation of the object side.</p>
+<p>Now transpose everything.
+The commutation datum $\alpha : ST \Rightarrow TS$ transposes to a natural isomorphism $\alpha^* : T^* S^* \Rightarrow S^* T^*$.
+The lifted functor $T^*$ acts on $\mathcal{A}^*$, and the question is: when does $T^*$ preserve canonical $\lambda^*$-eigenfunctionals?</p>
+<h2 id="the-transposed-commutation-datum">The transposed commutation datum</h2>
+<p>Given $\alpha : ST \xRightarrow{\sim} TS$, define the transposed commutation datum.</p>
+<p><strong>Definition.</strong> For functionals $F \in \mathcal{A}^*$, the component of $\alpha^*$ at $F$ is the natural transformation
+</p>
+$$\alpha^*_F = F(\alpha) : F \circ S \circ T \Rightarrow F \circ T \circ S,$$<p>
+where $F(\alpha)$ denotes postcomposition with the components of $\alpha$.</p>
+<p>More precisely, at an object $M$, the component is $F(\alpha_M) : F(S(T(M))) \to F(T(S(M)))$.</p>
+<h2 id="the-functional-side-preservation-theorem">The functional-side preservation theorem</h2>
+<p><strong>Theorem.</strong> The lifted functor $T^* : \operatorname{Rep}(S^*) \to \operatorname{Rep}(S^*)$ preserves canonical $\lambda^*$-eigenfunctionals if and only if
+</p>
+$$T(\lambda_M) = \alpha_M \circ \lambda_{T(M)}$$<p>
+for every object $M \in \mathcal{A}$.</p>
+<p><em>Proof.</em> A canonical $\lambda^*$-eigenfunctional is a pair $(F, F(\lambda))$.
+The functor $T^*$ acts by $T^*(F) = F \circ T$.
+Its structure map in $\operatorname{Rep}(S^*)$ is $\alpha^*_F \circ T^*(F(\lambda))$, which at an object $M$ is the composite
+</p>
+$$(F \circ T)(M) \xrightarrow{F(T(\lambda_M))} (F \circ T \circ S)(M) \xrightarrow{F(\alpha_M)^{-1}} (F \circ S \circ T)(M).$$<p>
+Wait: for preservation of $\operatorname{Eig}_{\lambda^*}(S^*)$, the structure map of $T^*(F, F(\lambda))$ must equal $(F \circ T)(\lambda)$, which at $M$ is $F(\lambda_{T(M)})$.
+So the condition is
+</p>
+$$F(\alpha_M)^{-1} \circ F(T(\lambda_M)) = F(\lambda_{T(M)})$$<p>
+for all $F$ and all $M$.
+Applying this to the representable functionals $\operatorname{Hom}(-, N)$ and using the Yoneda lemma, the condition reduces to
+</p>
+$$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)},$$<p>
+which is the object-side equation, or equivalently $T(\lambda_M) = \alpha_M \circ \lambda_{T(M)}$. $\square$</p>
+<h2 id="reading-the-two-equations-together">Reading the two equations together</h2>
+<p>Object side:
+</p>
+$$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}.$$<p>Functional side:
+</p>
+$$T(\lambda_M) = \alpha_M \circ \lambda_{T(M)}.$$<p>These are the same equation.
+Multiply both sides of the object-side equation by $\alpha_M$ on the left to obtain the functional-side equation.
+The two conditions are equivalent, and each implies the other.</p>
+<p>The transpose story does not produce a new compatibility law.
+It reveals that the original one was already self-dual: it reads the same from both sides of $\alpha_M$.</p>
+<h2 id="what-this-means-structurally">What this means structurally</h2>
+<p>In classical linear algebra, the eigenvalue equation $Tv = \mu v$ is symmetric in a similar way: the same scalar $\mu$ appears whether one works on $V$ or on $V^*$.
+The categorified version makes this symmetry explicit through the equation above.</p>
+<p>The compatibility equation is not merely a condition that appears on one side of the theory.
+It is the organizing equation of the whole structure: it governs preservation of eigendata on objects, preservation of eigendata on functionals, and (as the next posts will show) the behavior of polynomial expressions in $T$.</p>
+<p>The third and final part of the series turns to polynomial calculus.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>

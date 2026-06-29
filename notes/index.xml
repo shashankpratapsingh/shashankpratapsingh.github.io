@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Shashank Pratap Singh</title>
+    <link>https://shashankpratapsingh.github.io/notes/</link>
+    <description>Recent content in Notes on Shashank Pratap Singh</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shashankpratapsingh.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Complete Dictionary</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-12-dictionary/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-12-dictionary/</guid>
+      <description>&lt;p&gt;This is the capstone post of the series.&#xA;It does not prove new results.&#xA;It collects the complete translation between linear algebra and its categorification, states the series thesis precisely, and notes what the categorical version adds beyond the classical one.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-dictionary&#34;&gt;The dictionary&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Linear algebra&lt;/th&gt;&#xA;          &lt;th&gt;Categorified linear algebra&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Vector $v \in V$&lt;/td&gt;&#xA;          &lt;td&gt;Object $M \in \mathcal{A}$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Vector space $V$&lt;/td&gt;&#xA;          &lt;td&gt;$k$-linear category $\mathcal{A}$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Linear operator $T : V \to V$&lt;/td&gt;&#xA;          &lt;td&gt;Endofunctor $S : \mathcal{A} \to \mathcal{A}$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Action $Tv$&lt;/td&gt;&#xA;          &lt;td&gt;Image $S(M)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Eigenvalue equation $Tv = \mu v$&lt;/td&gt;&#xA;          &lt;td&gt;Structure map $s_M : M \to S(M)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Eigenvalue $\mu \in k$&lt;/td&gt;&#xA;          &lt;td&gt;Natural transformation $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Canonical eigenvector&lt;/td&gt;&#xA;          &lt;td&gt;Canonical $\lambda$-eigenobject $(M, \lambda_M)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Eigenspace $E_\mu(T)$&lt;/td&gt;&#xA;          &lt;td&gt;Category $\operatorname{Eig}_\lambda(S) \subseteq \operatorname{Rep}(S)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Krylov sequence $v, Tv, T^2v, \ldots$&lt;/td&gt;&#xA;          &lt;td&gt;Orbit tower $M \to S(M) \to S^2(M) \to \cdots$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Commuting operators $ST = TS$&lt;/td&gt;&#xA;          &lt;td&gt;Commutation datum $\alpha : ST \xRightarrow{\sim} TS$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Preservation $T(E_\mu(S)) \subseteq E_\mu(S)$&lt;/td&gt;&#xA;          &lt;td&gt;$\widetilde{T}$ preserves $\operatorname{Eig}_\lambda(S)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Compatibility condition&lt;/td&gt;&#xA;          &lt;td&gt;$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Invariant flag&lt;/td&gt;&#xA;          &lt;td&gt;Filtration $\mathcal{A}_0 \subseteq \cdots \subseteq \mathcal{A}_n = \mathcal{A}$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Triangularization&lt;/td&gt;&#xA;          &lt;td&gt;Preservation of filtration with canonical quotient eigendata&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Diagonalization&lt;/td&gt;&#xA;          &lt;td&gt;Decomposition $\mathcal{A} \simeq \bigoplus_\beta \mathcal{A}_\beta$ into stable eigenblocks&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Linear functional $V \to k$&lt;/td&gt;&#xA;          &lt;td&gt;$k$-linear functor $F : \mathcal{A} \to \operatorname{Vect}_k$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Dual space $V^*$&lt;/td&gt;&#xA;          &lt;td&gt;$\mathcal{A}^* = \operatorname{Fun}_k(\mathcal{A}, \operatorname{Vect}_k)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Transpose $L^* : W^* \to V^*$&lt;/td&gt;&#xA;          &lt;td&gt;Precomposition: $L^*(F) = F \circ L$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Double dual $V^{**}$&lt;/td&gt;&#xA;          &lt;td&gt;$\mathcal{A}^{**} = \operatorname{Fun}_k(\mathcal{A}^*, \operatorname{Vect}_k)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Reflexivity $V \cong V^{**}$&lt;/td&gt;&#xA;          &lt;td&gt;Equivalence $J_{\mathcal{A}} : \mathcal{A} \xrightarrow{\sim} \mathcal{A}^{**}$ (a condition, not automatic)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Eigenvector of $T^*$&lt;/td&gt;&#xA;          &lt;td&gt;Canonical $\lambda^*$-eigenfunctional $(F, F(\lambda))$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Polynomial coefficient $a_i \in k$&lt;/td&gt;&#xA;          &lt;td&gt;Coefficient vector space $V_i$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Polynomial in $T$&lt;/td&gt;&#xA;          &lt;td&gt;$P(S) = \bigoplus_i V_i \otimes S^i$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Polynomial multiplication (Cauchy)&lt;/td&gt;&#xA;          &lt;td&gt;$P(S) \circ Q(S) \cong \bigoplus_n \left(\bigoplus_{i+j=n} V_i \otimes W_j\right) \otimes S^n$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Polynomial relation $p(T) = 0$&lt;/td&gt;&#xA;          &lt;td&gt;Natural transformation $P(S) \Rightarrow 0$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Annihilator ideal in $k[x]$&lt;/td&gt;&#xA;          &lt;td&gt;$\operatorname{Ann}_{k[x]}([M])$ in $K_0(\mathcal{A})$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Linear factor $x - \mu$&lt;/td&gt;&#xA;          &lt;td&gt;Linear factor datum $\lambda : \operatorname{id} \Rightarrow S$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Generalized eigenspace $(T - \mu)^n v = 0$&lt;/td&gt;&#xA;          &lt;td&gt;Generalized $\lambda$-relation of rank $n$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Polynomial factorization $p = qr$&lt;/td&gt;&#xA;          &lt;td&gt;Factorization datum $P(S) \cong Q(S) \circ R(S)$&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;what-the-categorified-version-adds&#34;&gt;What the categorified version adds&lt;/h2&gt;&#xA;&lt;p&gt;The dictionary above might suggest that categorification is a straightforward substitution.&#xA;It is not.&#xA;Three features of the categorical theory have no classical counterpart.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linear Factors, Generalized Eigenobjects, and Factorization</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-11-linear-factors/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-11-linear-factors/</guid>
+      <description>&lt;p&gt;In ordinary linear algebra over an algebraically closed field, the minimal polynomial of an operator $T$ factors completely into linear factors $(x - \mu_i)^{n_i}$.&#xA;The eigenvalue $\mu_i$ gives the degree-one part; the power $n_i$ encodes the Jordan block structure.&#xA;This post identifies the categorical analogues of both.&lt;/p&gt;&#xA;&lt;h2 id=&#34;linear-factor-data&#34;&gt;Linear factor data&lt;/h2&gt;&#xA;&lt;p&gt;The natural transformation $\lambda : \operatorname{id}_{\mathcal{A}} \Rightarrow S$ is a &lt;em&gt;linear factor datum&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The term is chosen deliberately.&#xA;In the polynomial $x - \mu$, the scalar $\mu$ gives a specific map from the identity operator to $T$: it is the datum $v \mapsto \mu v$.&#xA;The natural transformation $\lambda$ plays the same role: it gives a specific map from the identity functor to $S$, one component per object.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Polynomial Relations and Annihilator Ideals</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-10-annihilators/</link>
+      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-10-annihilators/</guid>
+      <description>&lt;p&gt;In ordinary linear algebra, the minimal polynomial of a vector $v$ with respect to an operator $T$ is the monic polynomial $p$ of least degree such that $p(T)v = 0$.&#xA;The equation $p(T)v = 0$ is a statement about an element of a vector space.&#xA;Categorically, neither &amp;ldquo;element&amp;rdquo; nor &amp;ldquo;zero&amp;rdquo; transfers directly.&#xA;The correct replacement involves natural transformations, and the classical ideal theory emerges only after passing to a decategorified shadow.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Categorified Polynomials and the Cauchy Product</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-09-polynomials/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-09-polynomials/</guid>
+      <description>&lt;p&gt;Given a linear operator $T : V \to V$, ordinary linear algebra studies expressions of the form&#xA;&lt;/p&gt;&#xA;$$p(T) = a_0 \operatorname{id} + a_1 T + \cdots + a_n T^n, \qquad a_i \in k.$$&lt;p&gt;&#xA;These are polynomials in $T$ with scalar coefficients.&#xA;The minimal polynomial is the lowest-degree $p$ such that $p(T) = 0$.&#xA;For a categorified endofunctor $S$, the powers $S^i$ still make sense.&#xA;But the scalar coefficient $a_i \in k$ does not: there is no canonical way to attach a scalar to a functor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Same Compatibility Equation on Both Sides</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-08-compatibility/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-08-compatibility/</guid>
+      <description>&lt;p&gt;Post IV established that the lifted functor $\widetilde{T}$ preserves canonical $\lambda$-eigenobjects if and only if&#xA;&lt;/p&gt;&#xA;$$\alpha_M^{-1} \circ T(\lambda_M) = \lambda_{T(M)}$$&lt;p&gt;&#xA;for every object $M$.&#xA;This is the central compatibility equation of the object side.&lt;/p&gt;&#xA;&lt;p&gt;Now transpose everything.&#xA;The commutation datum $\alpha : ST \Rightarrow TS$ transposes to a natural isomorphism $\alpha^* : T^* S^* \Rightarrow S^* T^*$.&#xA;The lifted functor $T^*$ acts on $\mathcal{A}^*$, and the question is: when does $T^*$ preserve canonical $\lambda^*$-eigenfunctionals?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Double Duals and Eigenfunctionals</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-07-double-duals/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-07-double-duals/</guid>
+      <description>&lt;p&gt;The previous post defined the canonical functor $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ by $J_{\mathcal{A}}(M)(F) = F(M)$.&#xA;For a finite-dimensional vector space $V$, the analogous map $V \to V^{**}$ is an isomorphism.&#xA;The categorical version need not be an equivalence, and the failure of reflexivity is a meaningful geometric and algebraic datum, not a defect of the definition.&lt;/p&gt;&#xA;&lt;h2 id=&#34;reflexivity-as-a-condition&#34;&gt;Reflexivity as a condition&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Definition.&lt;/strong&gt; A $k$-linear category $\mathcal{A}$ is &lt;em&gt;reflexive&lt;/em&gt; if $J_{\mathcal{A}} : \mathcal{A} \to \mathcal{A}^{**}$ is an equivalence of categories.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Categorified Functionals and Transpose</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-06-functionals/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-06-functionals/</guid>
+      <description>&lt;p&gt;The first half of this series established the object side of categorified linear algebra: representations, eigenobjects, orbit towers, commuting endofunctors, and filtrations.&#xA;The second half develops the functional side.&#xA;The organizing question is: if a $k$-linear category plays the role of a vector space, what plays the role of a linear functional?&lt;/p&gt;&#xA;&lt;h2 id=&#34;categorified-functionals&#34;&gt;Categorified functionals&lt;/h2&gt;&#xA;&lt;p&gt;A linear functional on a vector space $V$ is a linear map $V \to k$.&#xA;Replacing $V$ by a $k$-linear category $\mathcal{A}$ and $k$ by the category of $k$-vector spaces, the direct analogue is a $k$-linear functor&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Triangularization and Diagonalization Without Matrices</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-05-triangularization/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-05-triangularization/</guid>
+      <description>&lt;p&gt;Simultaneous triangularization in linear algebra says that a commuting family of operators can sometimes be put into upper-triangular form with respect to a common basis.&#xA;But the basis is not the point.&#xA;The basis is a way of representing a &lt;em&gt;flag&lt;/em&gt;: a chain of invariant subspaces&#xA;&lt;/p&gt;&#xA;$$0 = V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_n = V,$$&lt;p&gt;&#xA;each stable under every operator in the family.&#xA;The matrix is upper-triangular because the flag is invariant; the flag is the real structure.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Commuting Endofunctors and Preservation of Eigenspaces</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-04-commutation/</link>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-04-commutation/</guid>
+      <description>&lt;p&gt;If two operators on a vector space commute, $ST = TS$, then $T$ maps each eigenspace of $S$ into itself.&#xA;The proof is one line: if $Sv = \mu v$ and $ST = TS$, then $S(Tv) = T(Sv) = T(\mu v) = \mu(Tv)$.&lt;/p&gt;&#xA;&lt;p&gt;The categorical analogue of this result requires more care, because strict equality $ST = TS$ of functors is almost never the right condition.&#xA;Two functors that agree on every object and every morphism are equal, but in practice one works with functors that are &lt;em&gt;isomorphic&lt;/em&gt;, not literally equal.&#xA;The correct replacement for the equation $ST = TS$ is a specified natural isomorphism $\alpha : ST \xRightarrow{\sim} TS$.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Orbit Towers and Iterated Eigenmaps</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-03-orbit-towers/</link>
+      <pubDate>Mon, 24 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-03-orbit-towers/</guid>
+      <description>&lt;p&gt;Given a linear operator $T : V \to V$ and a vector $v \in V$, one forms the Krylov sequence&#xA;&lt;/p&gt;&#xA;$$v,\quad Tv,\quad T^2v,\quad T^3v,\quad \ldots$$&lt;p&gt;&#xA;All of these live in $V$.&#xA;The sequence is the raw material for cyclic subspaces, minimal polynomials, and Jordan theory.&lt;/p&gt;&#xA;&lt;p&gt;For an endofunctor $S : \mathcal{A} \to \mathcal{A}$, the analogous construction is not a sequence of objects inside one ambient category (they already all live in $\mathcal{A}$) but a sequence of &lt;em&gt;maps&lt;/em&gt; connecting successive iterates.&#xA;The maps are the content; the objects alone do not determine them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Eigenvalues as Natural Transformations</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-02-eigenvalues/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-02-eigenvalues/</guid>
+      <description>&lt;p&gt;The previous post introduced $\operatorname{Rep}(S)$: the category of objects equipped with a chosen structure map $s_M : M \to S(M)$.&#xA;Any morphism $M \to S(M)$ qualifies, so $\operatorname{Rep}(S)$ is large and undifferentiated.&#xA;The linear algebraic eigenvalue equation $Tv = \mu v$ is more specific: the scalar $\mu$ determines the action on &lt;em&gt;all&lt;/em&gt; vectors simultaneously, not just on one chosen vector.&#xA;The categorical analogue of this specificity is a natural transformation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>From Operators to Endofunctors</title>
+      <link>https://shashankpratapsingh.github.io/notes/cat-linalg-01-operators/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/cat-linalg-01-operators/</guid>
+      <description>&lt;p&gt;A linear operator $T : V \to V$ acts on vectors inside one fixed ambient space.&#xA;The equation $Tv = \mu v$ makes sense because both sides live in $V$.&#xA;Once that ambient space is replaced by a category, this sentence stops parsing.&#xA;The left side $S(M)$ is an object produced by a functor; the right side $\mu \cdot M$ has no meaning without scalar multiplication on objects.&#xA;The right response is not to force the equation to make sense.&#xA;It is to find the structure that the equation was secretly encoding.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vertex-Wise Linear Algebra</title>
+      <link>https://shashankpratapsingh.github.io/notes/vertex-wise-linear-algebra/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://shashankpratapsingh.github.io/notes/vertex-wise-linear-algebra/</guid>
+      <description>&lt;p&gt;If you have ever taken a linear algebra course, you likely spent a significant amount of time analyzing square matrices. You calculated determinants, found eigenvalues, and perhaps wrestled with the Jordan Normal Form.&lt;/p&gt;&#xA;&lt;p&gt;Later, you might have realized that a matrix is essentially a coordinate-dependent projection of a more fundamental object: a linear map between vector spaces. A matrix is what we obtain when we fix a basis.&lt;/p&gt;&#xA;&lt;p&gt;But there is a third perspective. This approach takes the &amp;ldquo;vector space and map&amp;rdquo; intuition and lifts it into a combinatorial setting. This perspective allows us to perform linear algebra not just locally at a single &lt;strong&gt;node&lt;/strong&gt;, but across a network. This is the theory of &lt;strong&gt;Quiver Representations&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

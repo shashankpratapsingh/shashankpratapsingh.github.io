@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit Towers and Iterated Eigenmaps · Shashank Pratap Singh</title>
+<meta name="description" content="Academic homepage of Shashank Pratap Singh, PhD candidate in Mathematics at the University of Iowa, working in representation theory, Hopf algebras, and tensor categories.">
+<meta name="author" content="Shashank Pratap Singh">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F3EFE5'/><circle cx='34' cy='34' r='14' fill='%23C94D34'/></svg>">
+
+
+
+<link rel="stylesheet" href="/css/site.a700560480255c0731209d495b14acefb70a8f7fef0287c67a5fd18b9a09c8f0.css" integrity="sha256-pwBWBIAlXAcxIJ1JWxSs77cKj3/vAofGel/Ri5oJyPA=">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+
+<meta property="og:url" content="https://shashankpratapsingh.github.io/notes/cat-linalg-03-orbit-towers/">
+  <meta property="og:site_name" content="Shashank Pratap Singh">
+  <meta property="og:title" content="Orbit Towers and Iterated Eigenmaps">
+  <meta property="og:description" content="Given a linear operator $T : V \to V$ and a vector $v \in V$, one forms the Krylov sequence $$v,\quad Tv,\quad T^2v,\quad T^3v,\quad \ldots$$ All of these live in $V$. The sequence is the raw material for cyclic subspaces, minimal polynomials, and Jordan theory.
+For an endofunctor $S : \mathcal{A} \to \mathcal{A}$, the analogous construction is not a sequence of objects inside one ambient category (they already all live in $\mathcal{A}$) but a sequence of maps connecting successive iterates. The maps are the content; the objects alone do not determine them.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-11-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-24T00:00:00+00:00">
+
+
+  
+  <script>
+    (function(){
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+  <a class="brand" href="/"><b>Shashank Pratap Singh</b> · Index</a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+          onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">Contents</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="/research/">Research</a>
+    <a href="/cv/">CV</a>
+    <a href="/teaching/">Teaching</a>
+    <div class="nav__more">
+      <button type="button" aria-haspopup="true"
+              class="is-active">More</button>
+      <div class="nav__panel" role="menu">
+        <a href="/notes/" role="menuitem">Notes <span class="gloss">essays</span></a>
+        <a href="/code/" role="menuitem">Code <span class="gloss">tools</span></a>
+        <a href="/photography/" role="menuitem">Photography <span class="gloss">images</span></a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+
+    <main class="layout">
+      
+<span class="margin-note">Notes / 2025</span>
+<article>
+<section class="opener">
+  <div class="opener__meta">
+    <a class="label" href="/notes/">← Notes</a>
+    <span class="label tert">2025.11.24</span>
+    <span class="label--accent">Categorified Linear Algebra · III</span>
+  </div>
+  <h1 class="bigtitle" style="font-size:clamp(2.2rem,7vw,5rem)">Orbit Towers and Iterated Eigenmaps</h1>
+  <p class="opener__lede" style="max-width:54ch">In linear algebra the Krylov sequence is a list of vectors in one space. Categorically it becomes a tower of maps across different objects. The difference is not cosmetic.</p>
+</section>
+<section class="section">
+  <div class="prose"><p>Given a linear operator $T : V \to V$ and a vector $v \in V$, one forms the Krylov sequence
+</p>
+$$v,\quad Tv,\quad T^2v,\quad T^3v,\quad \ldots$$<p>
+All of these live in $V$.
+The sequence is the raw material for cyclic subspaces, minimal polynomials, and Jordan theory.</p>
+<p>For an endofunctor $S : \mathcal{A} \to \mathcal{A}$, the analogous construction is not a sequence of objects inside one ambient category (they already all live in $\mathcal{A}$) but a sequence of <em>maps</em> connecting successive iterates.
+The maps are the content; the objects alone do not determine them.</p>
+<h2 id="the-orbit-tower-of-a-representation">The orbit tower of a representation</h2>
+<p>Let $(M, s_M) \in \operatorname{Rep}(S)$.
+The structure map $s_M : M \to S(M)$ can be promoted to a map $S(s_M) : S(M) \to S^2(M)$ by applying $S$.
+Applying $S$ again gives $S^2(s_M) : S^2(M) \to S^3(M)$, and so on.
+Composing in sequence:</p>
+$$M \xrightarrow{s_M} S(M) \xrightarrow{S(s_M)} S^2(M) \xrightarrow{S^2(s_M)} S^3(M) \to \cdots$$<p><strong>Definition.</strong> The <em>orbit tower</em> of $(M, s_M)$ is this sequence together with its transition maps.</p>
+<p>The composite map from $M$ to $S^n(M)$ is
+</p>
+$$s_M^{(n)} = S^{n-1}(s_M) \circ S^{n-2}(s_M) \circ \cdots \circ S(s_M) \circ s_M,$$<p>
+with $s_M^{(0)} = \operatorname{id}_M$ by convention.</p>
+<p><strong>Lemma.</strong> For all $m, n \geq 0$,
+</p>
+$$s_M^{(m+n)} = S^m(s_M^{(n)}) \circ s_M^{(m)}.$$<p><em>Proof.</em> By induction on $n$.
+The base case $n = 0$ gives $s_M^{(m)} = S^m(\operatorname{id}_M) \circ s_M^{(m)} = s_M^{(m)}$, which holds.
+For the inductive step, assume the formula holds for $n$.
+Then
+</p>
+$$s_M^{(m+n+1)} = S^{m+n}(s_M) \circ s_M^{(m+n)} = S^{m+n}(s_M) \circ S^m(s_M^{(n)}) \circ s_M^{(m)} = S^m(S^n(s_M) \circ s_M^{(n)}) \circ s_M^{(m)} = S^m(s_M^{(n+1)}) \circ s_M^{(m)},$$<p>
+where the third equality uses functoriality of $S^m$. $\square$</p>
+<h2 id="the-difference-from-a-krylov-sequence">The difference from a Krylov sequence</h2>
+<p>In linear algebra, the Krylov sequence $v, Tv, T^2 v, \ldots$ is a sequence of <em>elements</em> of $V$.
+One can add them, scale them, compare them.
+The minimal polynomial of $v$ with respect to $T$ is the monic polynomial of least degree such that $p(T)v = 0$.
+All of this arithmetic happens inside one fixed vector space.</p>
+<p>The orbit tower $M \to S(M) \to S^2(M) \to \cdots$ is a sequence of <em>morphisms</em> between <em>different</em> objects.
+The objects $S^n(M)$ are not necessarily comparable or addable.
+The structure lies entirely in the maps.</p>
+<p>This is not a deficiency.
+It is a feature: the maps record <em>how</em> $M$ travels through the iterates of $S$, and that record carries more information than the bare sequence of objects.</p>
+<h2 id="orbit-towers-for-canonical-eigenobjects">Orbit towers for canonical eigenobjects</h2>
+<p>When $(M, s_M) = (M, \lambda_M)$ is a canonical $\lambda$-eigenobject, the orbit tower takes a particularly uniform form.</p>
+<p><strong>Proposition.</strong> For a canonical $\lambda$-eigenobject $(M, \lambda_M)$, the transition map from $S^n(M)$ to $S^{n+1}(M)$ in the orbit tower is $S^n(\lambda_M) = \lambda_{S^n(M)}$.</p>
+<p><em>Proof.</em> The map $S^n(\lambda_M)$ is the component of the natural transformation $\lambda$ applied to $S^n(M)$, which is exactly $\lambda_{S^n(M)}$ by naturality. $\square$</p>
+<p>So the orbit tower of a canonical eigenobject is:
+</p>
+$$M \xrightarrow{\lambda_M} S(M) \xrightarrow{\lambda_{S(M)}} S^2(M) \xrightarrow{\lambda_{S^2(M)}} S^3(M) \to \cdots$$<p>Every transition map is a component of the same natural transformation $\lambda$.
+This is the categorical analogue of the sequence
+</p>
+$$v,\quad \mu v,\quad \mu^2 v,\quad \mu^3 v,\quad \ldots$$<p>
+where every step multiplies by the same scalar $\mu$.
+But the powers are not scalar powers: they are iterated natural maps through successive powers of $S$.</p>
+<h2 id="what-comes-next">What comes next</h2>
+<p>The orbit tower is the raw sequence.
+What makes classical linear algebra powerful is that this sequence eventually becomes <em>dependent</em>: a polynomial relation $p(T)v = 0$ holds.
+The categorical analogue requires first understanding how two endofunctors can commute, and what it means for one to preserve the eigenstructure of the other.
+That is the subject of the next post.</p>
+</div>
+  <hr class="rule--soft" style="margin:2.5rem 0 1rem">
+  <p class="label tert">3 min read · Shashank Pratap Singh</p>
+</section>
+</article>
+
+    </main>
+    <footer class="colophon">
+  <div>
+    <span class="colophon__mark">●</span> Shashank Pratap Singh<br>
+    Department of Mathematics, University of Iowa<br>
+    Iowa City, IA
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <a href="mailto:shashank-singh@uiowa.edu">shashank-singh@uiowa.edu</a>
+    <a href="/cv_shashank.pdf">Curriculum Vitae ↗</a>
+  </div>
+  <div>
+    <h4>Elsewhere</h4>
+    <a href="https://github.com/shashankpratapsingh">GitHub ↗</a>
+    
+    
+    
+  </div>
+  <div>
+    <h4>This document</h4>
+    Set in Fraunces, Inter &amp; IBM Plex Mono.<br>
+    Built with Hugo.<br>
+    Last updated 2026-06-29
+  </div>
+</footer>
+
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
