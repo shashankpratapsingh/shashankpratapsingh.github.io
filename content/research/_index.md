@@ -4,7 +4,7 @@ title: "Research"
 
 ## Publications
 
-No refereed publications yet. **In preparation:** *“A Quiver-Theoretic Description of Taft Equivariant Morita Contexts”* (with Ryan Kinser)
+**In preparation:** *“A Quiver-Theoretic Description of Taft Equivariant Morita Contexts”* (with Ryan Kinser)
 
 Preprints and notes will appear here as they become available.
 
