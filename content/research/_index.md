@@ -7,6 +7,7 @@ title: "Research"
 **Dissertation:** *"Monoidal Lifts, Braided Operators, and Nilpotency in Graded Categories"*
 
 **In preparation:** *“Rank-One Non-semisimple Extensions of Fusion Categories”* (with Ryan Kinser)
+Here is the [introduction](/assets/pdf/Rank_One_Non_semisimple_Extensions_of_Fusion_Categories.pdf) as a preview.
 
 Preprints and notes will appear here as they become available.
 
