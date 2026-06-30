@@ -4,6 +4,8 @@ title: "Research"
 
 ## Publications
 
+**Dissertation:** *"Monoidal Lifts, Braided Operators, and Nilpotency in Graded Categories"*
+
 **In preparation:** *“A Quiver-Theoretic Description of Taft Equivariant Morita Contexts”* (with Ryan Kinser)
 
 Preprints and notes will appear here as they become available.
