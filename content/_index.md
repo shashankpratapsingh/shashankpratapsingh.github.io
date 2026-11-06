@@ -6,4 +6,4 @@ interests:
   - "Categorical approaches to representation theory"
 ---
 
-I'm Shashank Pratap Singh, a PhD Candidate in mathematics at the University of Iowa working in representation theory, Hopf algebras, and finite tensor categories under the guidance of Prof. [Ryan Kinser](https://homepage.math.uiowa.edu/~rkinser/).
+I'm Shashank Pratap Singh, a Visiting Assistant Professor in mathematics at the University of Iowa working in representation theory, Hopf algebras, and finite tensor categories. I earned my PhD under the guidance of Prof. [Ryan Kinser](https://homepage.math.uiowa.edu/~rkinser/).
